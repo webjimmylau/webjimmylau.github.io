@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/scrollTopControl.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="subMenu">
+    <div class="wrap">
+        <div class="subTitle">VueJS专区：</div>
+        <ul>
+            <li><a href="#01" class="click">vue</a></li>
+            <li><a href="#02">vue-cli</a></li>
+            <li><a href="#03">config/index.js</a></li>
+            <li><a href="#04">build/webpack.base.conf.js</a></li>
+            <li><a href="#05">build/utils.js</a></li>
+            <li><a href="#06">src/main.js</a></li>
+            <li><a href="#07">src/app.vue</a></li>
+            <li><a href="#08">src/router/index.js</a></li>
+            <li><a href="#09">src/store/index.js</a></li>
+            <li><a href="#10">axios</a></li>
+            <li><a href="#11">移动端</a></li>
+            <li><a href="#12">iconfont</a></li>
+            <li><a href="#13">better-scroll</a></li>
+            <li><a href="#14">vue-awesome-swiper</a></li>
+            <li><a href="#15">router-link</a></li>
+            <li><a href="#16">fade</a></li>
+            <li><a href="#17">touch</a></li>
+            <li><a href="#18">其他</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container fn-clear">
+    <div class="wrap">
+        <div class="contBox">
+            <i id="01" class="anchor"></i>
+            <h4>VueJS简介</h4>
+            <p>VueJS学习起来非常简单，但需要了解的知识：HTML、CSS、JavaScript。</p>
+            <p>1、VueJS 是一套构建用户界面的渐进式框架；</p>
+            <p>2、VueJS 只关注视图层， 采用自底向上增量开发的设计；</p>
+            <p>3、VueJS 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
+        </div>
+        <div class="contBox">
+            <h4>VueJS用法</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>VueJS 指令</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>v-model</td>
+                    <td>绑定指令<span class="fn-right">v-model="message"</span></td>
+                </tr>
+                <tr>
+                    <td>v-if</td>
+                    <td>条件渲染指令<span class="fn-right">v-if="yes"</span></td>
+                </tr>
+                <tr>
+                    <td>v-show</td>
+                    <td>也是条件渲染指令，会被渲染，改变display的值<span class="fn-right">v-show="yes"</span></td>
+                </tr>
+                <tr>
+                    <td>v-else</td>
+                    <td>v-else元素必须立即跟在v-if后面<span class="fn-right"></span></td>
+                </tr>
+                <tr>
+                    <td>v-for</td>
+                    <td>指令基于一个数组渲染一个列表<span class="fn-right">v-for="item in items"</span></td>
+                </tr>
+                <tr>
+                    <td>v-bind</td>
+                    <td>指令可以在其名称后面带一个参数<span class="fn-right">v-bind:class="activeNumber === 1 ? 'current' : ''"</br>:class="activeNumber === 1 ? 'current' : ''"</span></td>
+                </tr>
+                <tr>
+                    <td>v-on</td>
+                    <td>指令用于给监听DOM事件<span class="fn-right">v-on:click="createPerson"</br>@click="createPerson"</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="02" class="anchor"></i>
+            <h4>vue-cli</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>脚手架搭建</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>准备</td>
+                    <td>npm install vue-cli -g<span class="fn-right">确保已全局安装node、npm</span></td>
+                </tr>
+                <tr>
+                    <td>下载</td>
+                    <td>vue init webpack my-project<span class="fn-right">下载脚手架项目</span></td>
+                </tr>
+                <tr>
+                    <td>运行</td>
+                    <td>npm start<span class="fn-right">把服务跑起来</span></td>
+                </tr>
+                <tr>
+                    <td>结构图</td>
+                    <td><img src="../imgs/vue_01.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="03" class="anchor"></i>
+            <h4>config/index.js</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>接口代理设置</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>解决跨域的问题</td>
+                    <td>
+                        <p>修改文件：./config/index.js</p>
+                        <p>proxyTable: {</p>
+                        <p>&nbsp;&nbsp;'/lots-web/**': {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;target: 'http://localhost:8080' // 接口的域名</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>},</p>
+                        <p>// 更改端口</p>
+                        <p>port: 6001,</p>
+                        <p>// 是否在编译（输入命令行npm run dev）后打开浏览器http://localhost:6001</p>
+                        <p>autoOpenBrowser: false,</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>开发环境本地数据挂载</td>
+                    <td>
+                        <p>proxyTable: {</p>
+                        <p>&nbsp;&nbsp;'/api': {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;target: 'http://localhost:7000',</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;pathRewrite: {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;'^/api': '/static/mock'</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>},</p>
+                        <p>json数据文件路径：static/mock/index.json</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="04" class="anchor"></i>
+            <h4>build/webpack.base.conf.js</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>styles路径/scss预编译</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>styles路径配置</td>
+                    <td>
+                        <p>alias: {</p>
+                        <p>&nbsp;&nbsp;'vue$': 'vue/dist/vue.esm.js',</p>
+                        <p>&nbsp;&nbsp;'@': resolve('src'),</p>
+                        <p>&nbsp;&nbsp;'styles': resolve('src/assets/styles')</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>scss预编译</td>
+                    <td>
+                        <p>安装模块：</p>
+                        <p>npm install --save-dev sass-loader</p>
+                        <p>npm install --save-dev node-sass</p>
+                        <p>{</p>
+                        <p>&nbsp;&nbsp;test: /\.sass$/,</p>
+                        <p>&nbsp;&nbsp;loaders: ['style', 'css', 'sass']</p>
+                        <p>}</p>
+                        <p>修改文件：xxx.vue</p>
+                        <p>style lang='scss'</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="05" class="anchor"></i>
+            <h4>build/utils.js</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>variables.scss/variables.styl预编译</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>全局引用variables.scss变量文件</td>
+                    <td>
+                        <p>安装模块：</p>
+                        <p>npm install --save-dev sass-resources-loader</p>
+                        <p>scss: generateLoaders('sass').concat(</p>
+                        <p>&nbsp;&nbsp;{</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;loader: 'sass-resources-loader',</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;options: {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resources: path.resolve(__dirname, '../src/assets/styles/variables.scss')</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>),</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>全局引用variables.styl变量文件</td>
+                    <td>
+                        <p> 安装模块：</p>
+                        <p>npm install --save-dev stylus</p>
+                        <p>npm install --save-dev stylus-loader</p>
+                        <p>const stylusOptions = {</p>
+                        <p>&nbsp;&nbsp;import: [</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;path.join(__dirname, "../src/assets/styles/variables.styl")</p>
+                        <p>&nbsp;&nbsp;]</p>
+                        <p>}</p>
+                        <p>return {</p>
+                        <p>&nbsp;&nbsp;stylus: generateLoaders('stylus', stylusOptions),</p>
+                        <p>&nbsp;&nbsp;styl: generateLoaders('stylus', stylusOptions)</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="06" class="anchor"></i>
+            <h4>src/main.js</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>主文件</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>初始</td>
+                    <td>
+                        <p>import Vue from 'vue'</p>
+                        <p>import App from './App'</p>
+                        <p>import router from './router' // 路由</p>
+                        <p>Vue.config.productionTip = false // 设置为 false 以阻止 vue 在启动时生成生产提示</p>
+                        <p>new Vue({</p>
+                        <p>&nbsp;&nbsp;el: '#app',</p>
+                        <p>&nbsp;&nbsp;router,</p>
+                        <p>&nbsp;&nbsp;components: {App},</p>
+                        <p>&nbsp;&nbsp;template: '<App/>'</p>
+                        <p>})</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>入口</td>
+                    <td>
+                        <p>import router from './router' // 路由</p>
+                        <p>import store from './store' // 状态</p>
+                        <p>import api from './utility/api' // 接口</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>模块</td>
+                    <td>
+                        <p>import axios from 'axios' // 接口调用</p>
+                        <p>import 'babel-polyfill' // ie9和一些低版本的浏览器对es6新语法的不支持问题</p>
+                        <p>import fastClick from 'fastclick' // 延迟300毫秒</p>
+                        <p>import VueAwesomeSwiper from 'vue-awesome-swiper' // 图片轮播</p>
+                        <p>import BScroll from 'better-scroll' // 拖动插件</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>公用样式</td>
+                    <td>
+                        <p>import 'styles/reset.css' // 重置</p>
+                        <p>import 'styles/common.css' // 公共</p>
+                        <p>import 'styles/border.css' // 1像素边</p>
+                        <p>import 'styles/iconfont.css' // 文字图标</p>
+                        <p>import 'swiper/dist/css/swiper.css' // 图片轮播</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>公用组件</td>
+                    <td>
+                        <p>import Fade from '@/pages/common/fade' // 显隐过渡</p>
+                        <p>import Gallery from '@/pages/common/gallery' // 画廊</p>
+                        <p>Vue.component('c-fade', Fade)</p>
+                        <p>Vue.component('c-gallery', Gallery)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>全局调用</td>
+                    <td>
+                        <p>Vue.use(VueAwesomeSwiper, /*{default global options}*/) // 图片轮播</p>
+                        <p>Vue.prototype.$scroll = BScroll</p>
+                        <p>Vue.prototype.$http = axios</p>
+                        <p>Vue.prototype.$api = api</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>其他</td>
+                    <td>
+                        <p>fastClick.attach(document.body) // 为消除移动端浏览器，从物理触摸到触发点击事件之间的300ms延时的问题</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>创建Vue</td>
+                    <td>
+                        <p>new Vue({</p>
+                        <p>&nbsp;&nbsp;el: '#app',</p>
+                        <p>&nbsp;&nbsp;router,</p>
+                        <p>&nbsp;&nbsp;store,</p>
+                        <p>&nbsp;&nbsp;components: {App},</p>
+                        <p>&nbsp;&nbsp;template: '&ltApp/&gt;'</p>
+                        <p>})</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="07" class="anchor"></i>
+            <h4>src/App.vue</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>vue入口文件</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>keep-alive数据缓存</td>
+                    <td>
+                        <p>&lt;keep-alive :exclude="exclude"&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;router-view/&gt;</p>
+                        <p>&lt;/keep-alive&gt;</p>
+                        <p>data(){</p>
+                        <p>&nbsp;&nbsp;return {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;exclude: [</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Detail'</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>用法</td>
+                    <td>
+                        <p>1、如不填，则缓存全部组件</p>
+                        <p>2、keep-alive include="City"，缓存name='City'的组件</p>
+                        <p>3、keep-alive exclude="Detail"，不缓存name='Detail'的组件</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>生命周期</td>
+                    <td>
+                        <p>当时用keep-alive的时候，会触发activated和deactivated生命周期</p>
+                        <p>activated 当组件被激活的时候调用</p>
+                        <p>deactivated 当组件被移除的时候调用</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="08" class="anchor"></i>
+            <h4>src/router/index.js</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>路由文件人口</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>初始</td>
+                    <td>
+                        <p>import Vue from 'vue'</p>
+                        <p>import Router from 'vue-router'</p>
+                        <p>import Home from '@/pages/home/home'</p>
+                        <p>export default new Router({</p>
+                        <p>&nbsp;&nbsp;routes: [</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path: '/home',</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: Home</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;]</p>
+                        <p>)}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>组件和路由路径</td>
+                    <td>
+                        <p>import Home from '@/pages/home/home'</p>
+                        <p>const path = {</p>
+                        <p>&nbsp;&nbsp;home: '/'</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>路由和组件渲染</td>
+                    <td>
+                        <p>routes: [</p>
+                        <p>&nbsp;&nbsp;{</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;path: path.home,</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;component: Home</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>]</p>
+                    </td>
+                </tr>
+                <tr>
+                  <td>路由"#"号去除</td>
+                  <td>
+                    <p>mode: 'history',</p>
+                  </td>
+                </tr><tr>
+                  <td>当前路由添加.active</td>
+                  <td>
+                    <p>linkActiveClass: 'active',</p>
+                    <p>linkExactActiveClass: 'active',</p>
+                  </td>
+                </tr>
+                <tr>
+                    <td>切换路由时界面始终显示顶部</td>
+                    <td>
+                        <p>scrollBehavior(to, from, savePosition){</p>
+                        <p>&nbsp;&nbsp;return {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;x: 0,</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;y: 0</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>vue用$route获取router</td>
+                    <td>
+                        <p>// $router</p>
+                        <p>路由：'/detail/:name' // '/detail/lzm'</p>
+                        <p>this.$route.params.name</p>
+                        <p>路由：'/detail' // 'detail?name=lzm'</p>
+                        <p>this.$route.query.name</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="09" class="anchor"></i>
+            <h4>src/store/index.js</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>状态管理文件入口</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>状态管理</td>
+                    <td>
+                        <p>import Vue from 'vue'</p>
+                        <p>import Vuex from 'vuex'</p>
+                        <p>import state from './state'</p>
+                        <p>import mutations from './mutations'</p>
+                        <p>import actions from './actions'</p>
+                        <p>Vue.use(Vuex)</p>
+                        <p>export default new Vuex.Store({</p>
+                        <p>&nbsp;&nbsp;state,</p>
+                        <p>&nbsp;&nbsp;mutations,</p>
+                        <p>&nbsp;&nbsp;actions</p>
+                        <p>})</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>第四步state.js</td>
+                    <td>
+                        <p>let defaultCity = {</p>
+                        <p>&nbsp;&nbsp;id: 1,</p>
+                        <p>&nbsp;&nbsp;spell: 'beijing',</p>
+                        <p>&nbsp;&nbsp;name: '北京'</p>
+                        <p>}</p>
+                        <p>if(localStorage.city){</p>
+                        <p>&nbsp;&nbsp;defaultCity = JSON.parse(localStorage.city) // 字符串转对象</p>
+                        <p>}</p>
+                        <p>const state = {</p>
+                        <p>&nbsp;&nbsp;city: defaultCity</p>
+                        <p>}</p>
+                        <p>export default state</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>第三步mutations.js</td>
+                    <td>
+                        <p>const mutations = {</p>
+                        <p>&nbsp;&nbsp;changeCity(state, payload){</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;state.city = payload</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;localStorage.city = JSON.stringify(payload) // 当为对象是，要转字符串</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                        <p>export default mutations</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>第二步actions.js</td>
+                    <td>
+                        <p>const actions = {</p>
+                        <p>&nbsp;&nbsp;changeCity(context, payload){</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;context.commit('changeCity', payload)</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                        <p>export default actions</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>第一步xxx.vue</td>
+                    <td>
+                        <p>template部分：</p>
+                        <p>&lt;div @click="handleClick(item)"&gt;{{city}}&lt;/div&gt;</p>
+                        <p>script部分：</p>
+                        <p>import { mapState, mapActions} from 'vuex'</p>
+                        <p>export default {</p>
+                        <p>&nbsp;&nbsp;computed: {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;...mapState(['city'])</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;methods: {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;...mapActions(['changeCity'])</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;handleClick(city){}</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.changeCity(city)</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="10" class="anchor"></i>
+            <h4>axios</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>$http调用接口</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>全局调用</td>
+                    <td>
+                        <p>修改main.js文件</p>
+                        <p>Vue.prototype.$http = axios</p>
+                        <p>xxx.vue文件：</p>
+                        <p>this.$http.get('/api/index.json', {params: {...}}).then(fn(data)).catch(fn(data));</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>局部调用</td>
+                    <td>
+                        <p>xxx.vue文件：</p>
+                        <p>import axios from 'axios'</p>
+                        <p>axios.get('/api/index.json').then(fn(data)).catch(fn(data));</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>案例</td>
+                    <td>
+                        <p>getHomeData() {</p>
+                        <p>&nbsp;&nbsp;this.$http</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;.get(this.$api.home, {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params: {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: this.city.name</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;})</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;.then(res => {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let resData = res.data;</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (resData.ret && resData.data) {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let data = resData.data</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.bannerList = data.bannerList</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.iconList = data.iconList</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.likeList = data.recommendList</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.weekendList = data.weekendList</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;})</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;.catch((err) => {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(err)</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;})</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="11" class="anchor"></i>
+            <h4>移动端</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>移动端初始配置</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>移动端访问</td>
+                    <td>
+                        <p>修改package.json文件：--host 0.0.0.0</p>
+                        <p>mac查看ip： ifconfig</p>
+                        <p>windows查看ip： ipconfig</p>
+                        <p>手机访问地址： ip:7000</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>缩放比例</td>
+                    <td>
+                        <p>修改文件：index.html</p>
+                        <p>meta minimum-scale=1.0, maximum-scale=1.0, user-scalable=no</p>
+                        <p>meta width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>初始化样式</td>
+                    <td>reset.css</td>
+                </tr>
+                <tr>
+                    <td>1px像素设备不一致</td>
+                    <td>borer.css</td>
+                </tr>
+                <tr>
+                    <td>延迟300ms</td>
+                    <td>
+                        <p>模块 fastclick 解决移动端事件延迟300ms</p>
+                        <p>main.js文件加入：</p>
+                        <p>fastClick.attach(document.body)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>stylus运用</td>
+                    <td>
+                        <p>模块 stylus stylus-loader 类似scss预编译</p>
+                        <p>xxx.vue文件：</p>
+                        <p>style lang="stylus"</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="12" class="anchor"></i>
+            <h4>iconfont</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>文字图标</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>网址</td>
+                    <td>
+                        <a href="http://www.iconfont.cn" target="_blank">http://www.iconfont.cn</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>步骤</td>
+                    <td>
+                        <p>选择图标加入购物车 →</p>
+                        <p>添加到项目 →</p>
+                        <p>下载到本地 →</p>
+                        <p>字体和css复制到项目 →</p>
+                        <p>更改iconfont目录和删除代码 →</p>
+                        <p>引入iconfont.css →</p>
+                        <p>&lt;span class="iconfont user-icon">&#x e624;&gt;&lt;span&gt;</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="13" class="anchor"></i>
+            <h4>better-scroll</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>拖动使界面滚动</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>全局</td>
+                    <td>
+                        <p>修改main.js文件：</p>
+                        <p>import BScroll from 'better-scroll'</p>
+                        <p>Vue.prototype.$scroll= BScroll</p>
+                        <p>xxx.vue文件：</p>
+                        <p>mounted() {</p>
+                        <p>&nbsp;&nbsp;this.scroll = new this.$scroll(elevent); // element为dom或$refs</p>
+                        <p>},</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>局部</td>
+                    <td>
+                        <p>xxx.vue文件：</p>
+                        <p>import BScroll from 'better-scroll'</p>
+                        <p>this.scrolll = new BScroll(this.$refs.wrapper)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>定位到某个元素</td>
+                    <td>
+                        this.scroll.scrollToElement(element)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="14" class="anchor"></i>
+            <h4>vue-awesome-swiper</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>图片轮播</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>网址</td>
+                    <td>
+                        <a href="https://www.swiper.com.cn/" target="_blank">https://www.swiper.com.cn/</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>步骤</td>
+                    <td>
+                        <p>安装模块 vue-awesome-swiper 轮播插件(2.6.7)</p>
+                        <p>修改main.js：</p>
+                        <p>import "swiper/dist/css/swiper.css"</p>
+                        <p>Vue.use(VueAwesomeSwiper)</p>
+                        <p>xxx.vue文件：</p>
+                        <p>&lt;swiper :options="swiperOption" v-if="hasBanner"&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;swiper-slide v-for="item in list"&gt;</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img :src="item.imgUrl"&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;/swiper-slide&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;div class="swiper-pagination" slot="pagination"&gt;&lt;/div&gt;</p>
+                        <p>&lt;/swiper&gt;</p>
+                        <p>swiperOption: {</p>
+                        <p>&nbsp;&nbsp;pagination: '.swiper-pagination',</p>
+                        <p>&nbsp;&nbsp;autoplay: 3000,</p>
+                        <p>&nbsp;&nbsp;paginationType: 'fraction',</p>
+                        <p>&nbsp;&nbsp;loop: true</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="15" class="anchor"></i>
+            <h4>router-link</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>路由链接</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>router-link组件的active设置</td>
+                    <td>
+                        <p>全局设置：</p>
+                        <p>export default new VueRouter({</p>
+                        <p>&nbsp;&nbsp;linkActiveClass: 'active',</p>
+                        <p>&nbsp;&nbsp;linkExactActiveClass: 'active',</p>
+                        <p>&nbsp;&nbsp;routes : [</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;... 省略</p>
+                        <p>&nbsp;&nbsp;]</p>
+                        <p>});</p>
+                        <p>局部设置：</p>
+                        <p>&lt;router-link :to="'home'" tag="li" active-class="active" exact-active-class="active" exact&gt;&lt标题router-link&gt;</p>
+                        <p>// 加上exact 则遵循路由完全一致模式，该路由下的路径不匹配</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>标准</td>
+                    <td>&lt;router-link :to="'/detail?name=' + item.name" tag="div"&gt;&lt;/router-link&gt;</td>
+                </tr>
+                <tr>
+                    <td>路由跳转</td>
+                    <td>this.$router.push('/')、this.$router.replace('/')</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="16" class="anchor"></i>
+            <h4>fade</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>过渡动画</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>template</td>
+                    <td>
+                        <p>&lt;transition&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;slot&gt;&lt;/slot&gt;</p>
+                        <p>&lt;/transition&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>style</td>
+                    <td>
+                        <p>&lt;style lang="stylus" scoped&gt;</p>
+                        <p>.v-enter, .v-leave-to</p>
+                        <p>&nbsp;&nbsp;opacity 0</p>
+                        <p>.v-enter-active, .v-leave-active</p>
+                        <p>&nbsp;&nbsp;transition opacity .5s</p>
+                        <p>&lt;/style&gt;</p>
+                    </td>
+                </tr>
+              <tr>
+                <td>name</td>
+                <td>
+                  <p>name="fade"</p>
+                  <p>.fade-enter</p>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="17" class="anchor"></i>
+            <h4>touch</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>拖动事件</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>touchstart/touchmove</td>
+                    <td>
+                        <p>&lt;div</p>
+                        <p>&nbsp;&nbsp;class="letter"</p>
+                        <p>&nbsp;&nbsp;@click="handleClickLetter"</p>
+                        <p>&nbsp;&nbsp;@touchstart.prevent="handleTouchStart"</p>
+                        <p>&nbsp;&nbsp;@touchmove="handleTouchMove"</p>
+                        <p>&nbsp;&nbsp;ref="letter"&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;div class="letter-cont" ref="letterCont"&gt;</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class="letter-item"</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v-for="item in list"</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:key="item">{{item}}&lt;/span&gt;</p>
+                        <p>&nbsp;&nbsp;&lt;/div&gt;</p>
+                        <p>&lt;/div&gt;</p>
+                        <p>methods: {</p>
+                        <p>&nbsp;&nbsp;handleClickLetter(e) {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;const letter = e.target.innerHTML</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;this.$emit('change', letter)</p>
+                        <p>&nbsp;&nbsp;},</p>
+                        <p>&nbsp;&nbsp;handleTouchStart() {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;this.letterHeight = this.$refs.letterCont.clientHeight / this.letterLen</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;this.letterOffsetTop = this.$refs.letter.offsetTop + this.$refs.letterCont.offsetTop</p>
+                        <p>&nbsp;&nbsp;},</p>
+                        <p>&nbsp;&nbsp;handleTouchMove(e) {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;let touchY = e.touches[0].clientY</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;let letterScope = (touchY - this.letterOffsetTop) / this.letterHeight</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;if (letterScope > 0 && letterScope < this.letterLen) {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (this.timer) clearTimeout(this.timer)</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.timer = setTimeout(() => {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.letterIndex = Math.floor(letterScope)</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}, 16)</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="18" class="anchor"></i>
+            <h4>其他</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>其他</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>描述</b></td>
+                    <td><b>代码</b></td>
+                </tr>
+                <tr>
+                    <td>组件里name的作用</td>
+                    <td>
+                        <p>1、递归组件会用到</p>
+                        <p>2、取消缓存的时候会用到</p>
+                        <p>3、浏览器vue插件显示组件的时候用到</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>子父组件传值</td>
+                    <td>
+                        <p>子组件：</p>
+                        <p>handleClick(){</p>
+                        <p>&nbsp;&nbsp;this.$emit('change', value)</p>
+                        <p>}</p>
+                        <p>父组件：</p>
+                        <p>&lt;component @change="handleClick"&gt;&lt;/component&gt;</p>
+                        <p>handleClick(){}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>$refs</td>
+                    <td>
+                        <p>this.$refs.msg 普通元素,引用指向dom：</p>
+                        <p>&lt;div ref='msg'&gt;Hello, world&lt;div&gt;</p>
+                        <p>this.$refs.child 组件，引用指向组件实例：</p>
+                        <p>&lt;c-child ref='child'&gt;Hello, world&lt;c-child&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>$route</td>
+                    <td>
+                        <p>1. /detail/:id</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;/detail/1389435894</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;this.$route.params.id</p>
+                        <p>2. /detail</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;/detail?id=1389435894</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;this.route.query.id</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>利用setTimeout节流</td>
+                    <td>
+                        <p>if(this.timer) clearTimeout(timer);</p>
+                        <p>this.timer = setTimeout(()=>{</p>
+                        <p>&nbsp;&nbsp;console.log(''xxx')</p>
+                        <p>}, 16);</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>滚动监听</td>
+                    <td>
+                        <p>1.window.onscroll = this.handleScroll</p>
+                        <p>2.window.addEventListener('scroll', this.handleScroll)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>浏览器cookie</td>
+                    <td>
+                        <p>localStorage.city = city</p>
+                        <p>localStorage.clear()</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="foot"></div>
+</body>
+</html>

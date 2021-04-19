@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript图解</title>
+    <style type="text/css">
+        *{ margin: 0; padding: 0; }
+        body{ font: 12px/1.5 "宋体", Arial, Helvetica, sans-serif; }
+        a{ color: #09f; text-decoration: none; }
+        .wrap{ width: 1200px;  margin: 0 auto;}
+        .head{ position: fixed; top: 0; width: 100%; }
+        .container{ padding-top: 30px; }
+        .menu{ padding: 0 20px; line-height: 50px; color: #fff; background: #563d7c;}
+        .menu a{ color: #fff; margin-right: 10px;}
+        .box{ padding: 20px; background: #f8f8f8; margin: 20px 0;}
+        .anchor{ position: absolute; margin-top: -70px; }
+        .h1{ line-height: 1; padding-left: 5px; color: #0099ff; border-left: 2px solid #0099ff; margin: 5px 0; }
+        .h2{ line-height: 1; padding-left: 5px; color: #009800; border-left: 2px solid #009800; margin: 5px 0 5px 8em; }
+        .h3{ line-height: 1; padding-left: 5px; color: #c342a4; border-left: 2px solid #c342a4; margin: 5px 0 5px 8em; }
+        .h4{ line-height: 1; padding-left: 5px; color: #ff4455; border-left: 2px solid #ff4455; margin: 5px 0 5px 8em; }
+        .h5{ line-height: 1; padding-left: 5px; color: #d69a27; border-left: 2px solid #d69a27; margin: 5px 0 5px 8em; }
+        .h6{ line-height: 1; padding-left: 5px; color: #999999; border-left: 2px solid #999999; margin: 5px 0 5px 8em; }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="wrap">
+            <div class="menu">
+                <a href="#01">1.javascript变量</a>
+                <a href="#02">2.javascript运算符</a>
+                <a href="#03">3.javascript数组</a>
+                <a href="#04">4.javascript流程语句</a>
+                <a href="#05">5.javascript字符串函数</a>
+                <a href="#06">6.javascript函数基础</a>
+                <a href="#07">7.javascript基础dom操作</a>
+                <a href="#08">8.javascript正则表达式</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="wrap content">
+            <div class="box">
+                <i id="01" class="anchor"></i>
+                <div class="h1">
+                    1.javascript变量
+                    <div class="h2">命名
+                        <div class="h3">方法
+                            <div class="h4">匈牙利命名法
+                                <div class="h5">变量名 = 类型 + 对象描述
+                                    <div class="h6">int 整型 i</div>
+                                    <div class="h6">float 浮点 fl</div>
+                                    <div class="h6">boolean 布尔值 b</div>
+                                    <div class="h6">string 字符串 s</div>
+                                    <div class="h6">array 数组 a</div>
+                                    <div class="h6">object 对象 o</div>
+                                    <div class="h6">function 函数 fn</div>
+                                    <div class="h6">regular expression 正则 re</div>
+                                </div>
+                            </div>
+                            <div class="h4">驼峰命名法
+                                <div class="h5">全部小写
+                                    <div class="h6">单词与单词间用下划线分隔</div>
+                                </div>
+                                <div class="h5">大小写混合
+                                    <div class="h6">大驼峰：每个单词首字母大写</div>
+                                    <div class="h6">小驼峰：第一个单词首字母小写，其他首字母大写</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">规则
+                            <div class="h4">首字符：英文字母、下划线</div>
+                            <div class="h4">组成：英文字母、下划线、数字</div>
+                            <div class="h4">禁忌：关键词、保留字</div>
+                        </div>
+                    </div>
+                    <div class="h2">声明
+                        <div class="h3">显示声明
+                            <div class="h4">var 变量名</div>
+                        </div>
+                        <div class="h3">陋习
+                            <div class="h4">没有类型</div>
+                            <div class="h4">重复声明</div>
+                            <div class="h4">隐式声明</div>
+                            <div class="h4">不声明直接赋值</div>
+                        </div>
+                        <div class="h3">正解
+                            <div class="h4">先声明，后读写</div>
+                            <div class="h4">先赋值，后运算</div>
+                        </div>
+                    </div>
+                    <div class="h2">变量类型
+                        <div class="h3">值类型
+                            <div class="h4">1、占用空间固定，保存在栈中</div>
+                            <div class="h4">2、保存与复制的是值本身</div>
+                            <div class="h4">3、使用 typeof 检测数据的类型</div>
+                            <div class="h4">4、基本类型数据是值类型</div>
+                        </div>
+                        <div class="h3">引用类型
+                            <div class="h4">1、占用空间不固定，保存在堆中</div>
+                            <div class="h4">2、保存与复制的是指向对象的一个指针</div>
+                            <div class="h4">3、使用 instanceof 检测数据的类型</div>
+                            <div class="h4">4、使用 new() 方法构造出的对象是引用型</div>
+                        </div>
+                    </div>
+                    <div class="h2">作用域
+                        <div class="h3">全局变量
+                            <div class="h4">包含
+                                <div class="h5">在函数体外定义的变量</div>
+                                <div class="h5">在函数体内部定义的无 var 的变量</div>
+                            </div>
+                            <div class="h4">调用
+                                <div class="h5">任何位置</div>
+                            </div>
+                        </div>
+                        <div class="h3">局部变量
+                            <div class="h4">包含
+                                <div class="h5">在函数内部使用 var 声明的变量</div>
+                                <div class="h5">函数的参数变量</div>
+                            </div>
+                            <div class="h4">调用
+                                <div class="h5">当前函数体内部</div>
+                            </div>
+                        </div>
+                        <div class="h3">优先级
+                            <div class="h4">局部变量高于同名全局变量</div>
+                            <div class="h4">参数变量高于同名全局变量</div>
+                            <div class="h4">局部变量高于同名参数变量</div>
+                        </div>
+                        <div class="h3">特性
+                            <div class="h4">忽略块级作用域</div>
+                            <div class="h4">全局变量是调用对象的属性</div>
+                            <div class="h4">局部变量是调用对象的属性</div>
+                            <div class="h4">作用域链
+                                <div class="h5">内层函数可以访问外层函数局部变量</div>
+                                <div class="h5">外层函数不能访问内层函数局部变量</div>
+                            </div>
+                            <div class="h4">声明周期
+                                <div class="h5">全局变量
+                                    <div class="h6">除非被显示删除，否则一直存在</div>
+                                </div>
+                                <div class="h5">局部变量
+                                    <div class="h6">自声明起至函数运行完毕或被显示删除</div>
+                                </div>
+                                <div class="h5">回收机制
+                                    <div class="h6">标记清除</div>
+                                    <div class="h6">引用计数</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="02" class="anchor"></i>
+                <div class="h1">
+                    2.javascript运算符
+                    <div class="h2">算术运算符
+                        <div class="h3">运算符
+                            <div class="h4">+ 号
+                                <div class="h5">功能
+                                    <div class="h6">对数字进行袋鼠求和</div>
+                                    <div class="h6">对字符串进行连接操作</div>
+                                    <div class="h6">将一个数值转换成字符串（数值 + 空字符串）</div>
+                                </div>
+                                <div class="h5">字符串拼接
+                                    <div class="h6">字符串 + 字符串 二者直接拼接</div>
+                                    <div class="h6">字符串 + 数值 转化为字符串在拼接</div>
+                                </div>
+                            </div>
+                            <div class="h4">- 号
+                                <div class="h5">功能
+                                    <div class="h6">对操作数进行“取反”操作</div>
+                                    <div class="h6">对数字进行减法操作</div>
+                                    <div class="h6">将字符串转换成数字（数值型字符串 -0）</div>
+                                </div>
+                            </div>
+                            <div class="h4">* 号
+                                <div class="h5">功能
+                                    <div class="h6">对两个运算数进行乘法运算</div>
+                                </div>
+                                <div class="h5">符号问题
+                                    <div class="h6">同号得正，异号得负</div>
+                                </div>
+                            </div>
+                            <div class="h4">/ 号
+                                <div class="h5">功能
+                                    <div class="h6">对两个运算数进行除法运算</div>
+                                </div>
+                                <div class="h5">符号问题
+                                    <div class="h6">同号得正，异号得负</div>
+                                </div>
+                            </div>
+                            <div class="h4">% 号
+                                <div class="h5">功能
+                                    <div class="h6">返回两个除数的余数</div>
+                                </div>
+                                <div class="h5">符号问题
+                                    <div class="h6">和第一个运算数的符号相同</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">复合赋值运算符
+                            <div class="h4">+=、-=、*=、/=、%=</div>
+                        </div>
+                    </div>
+                    <div class="h2">自增与自减
+                        <div class="h3">功能相反
+                            <div class="h4">++
+                                <div class="h5">对唯一的运算数进行递增操作（每次加 1）</div>
+                            </div>
+                            <div class="h4">--
+                                <div class="h5">对唯一的运算数进行递减操作（每次减 1）</div>
+                            </div>
+                        </div>
+                        <div class="h3">规则相同
+                            <div class="h4">运算数必须是一个变量、数组的一个元素或者对象的属性</div>
+                            <div class="h4">如果运算数是非数值的则运算符会将它转成数值</div>
+                        </div>
+                        <div class="h3">符号位置决定运算结果
+                            <div class="h4">运算数之前
+                                <div class="h5">线进行递增（递减）操作，再进行求值</div>
+                            </div>
+                            <div class="h4">运算数之后
+                                <div class="h5">先求值，在进行递增（递减）操作</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">关系运算符
+                        <div class="h3">大小关系检测
+                            <div class="h4">运算符
+                                <div class="h5">&gt; 号
+                                    <div class="h6">如果A大于B则返回值为 true，否则返回值为 false</div>
+                                </div>
+                                <div class="h5">&lt; 号
+                                    <div class="h6">如果A小于B则返回值为 true，否则返回值为 false</div>
+                                </div>
+                                <div class="h5">&gt;= 号
+                                    <div class="h6">如果A大于或等于B则返回值为 true，否则返回值为 false</div>
+                                </div>
+                                <div class="h5">&lt;= 号
+                                    <div class="h6">如果A小于或等于B则返回值为 true，否则返回值为 false</div>
+                                </div>
+                            </div>
+                            <div class="h4">操作规则
+                                <div class="h5">1、数值与数值比较
+                                    <div class="h6">比较他们的代数值</div>
+                                </div>
+                                <div class="h5">2、仅一个运算数是数值
+                                    <div class="h6">将另一个运算数转换成数值，并比较他们的代数值</div>
+                                </div>
+                                <div class="h5">3、字符串间的比较
+                                    <div class="h6">逐字符比较他们的 Unicode 数值</div>
+                                </div>
+                                <div class="h5">4、字符串与非数值的比较
+                                    <div class="h6">将运算数转换成字符串并进行比较</div>
+                                </div>
+                                <div class="h5">5、运算数即非数字也非字符串
+                                    <div class="h6">转换为数值或字符串后进行比较</div>
+                                </div>
+                                <div class="h5">6、运算数复发被转换成数值或字符串
+                                    <div class="h6">返回值为 false</div>
+                                </div>
+                                <div class="h5">7、与 NaN 的比较
+                                    <div class="h6">返回值为 false</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">等值关系检测
+                            <div class="h4">相等比较
+                                <div class="h5">操作符
+                                    <div class="h6">==（比较两个运算数的返回值看是否相等）</div>
+                                    <div class="h6">!=（比较两个运算数的返回值看是否不相等）</div>
+                                </div>
+                                <div class="h5">类型转换
+                                    <div class="h6">布尔值（true:1; false:0）</div>
+                                    <div class="h6">对象（调用 valueOf 基本类型）</div>
+                                    <div class="h6">字符串与数值的比较（字符串转换为数字）</div>
+                                </div>
+                                <div class="h5">比较原则
+                                    <div class="h6">null 与 undefined（相等，比较前不进行任何转换）</div>
+                                    <div class="h6">NaN（与任何数值都不想等包括其自身）</div>
+                                    <div class="h6">对象（是否属于同一对象 是 == 否 !=）</div>
+                                </div>
+                            </div>
+                            <div class="h4">相同比较
+                                <div class="h5">运算符
+                                    <div class="h6">===（比较两个运算数的返回值及数据类型看是否相同）</div>
+                                    <div class="h6">!==（比较两个运算数的返回值及数据类型看是否不相同）</div>
+                                </div>
+                                <div class="h5">比较原则
+                                    <div class="h6">值类型间比较（只有数据类型相同，且数值相等才能够相同）</div>
+                                    <div class="h6">值类型与引用类型比较（肯定不相同）</div>
+                                    <div class="h6">引用类型间比较（比较他们的英勇值→内存地址）</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">对象运算符
+                        <div class="h3">in
+                            <div class="h4">判断左侧运算数是否为右侧运算数的成员</div>
+                        </div>
+                        <div class="h3">instanceof
+                            <div class="h4">判断对象实例是否属于某个类或构造函数</div>
+                        </div>
+                        <div class="h3">new
+                            <div class="h4">根据构造函数创建一个新的对象，并初始化该对象</div>
+                        </div>
+                        <div class="h3">delete
+                            <div class="h4">删除指定对象的属性，数组元素或变量</div>
+                        </div>
+                        <div class="h3">. 及 []
+                            <div class="h4">存取对象和数组元素</div>
+                        </div>
+                        <div class="h3">()
+                            <div class="h4">函数调用，改变运算符优先级等</div>
+                        </div>
+                    </div>
+                    <div class="h2">逻辑运算符
+                        <div class="h3">! 逻辑非
+                            <div class="h4">返回值
+                                <div class="h5">true
+                                    <div class="h6">空字符串</div>
+                                    <div class="h6">0</div>
+                                    <div class="h6">null</div>
+                                    <div class="h6">NaN</div>
+                                    <div class="h6">undefined</div>
+                                </div>
+                                <div class="h5">false
+                                    <div class="h6">对象</div>
+                                    <div class="h6">非空字符串</div>
+                                    <div class="h6">非 0 数值（Infinity）</div>
+                                </div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">如果运算数的值为 false 则返回 true，否则返回 false</div>
+                                <div class="h5">连续使用两侧 !，可将任意类型转换为布尔值</div>
+                            </div>
+                        </div>
+                        <div class="h3">&& 逻辑与
+                            <div class="h4">规则
+                                <div class="h5">第一个操作数是对象
+                                    <div class="h6">返回第二个操作数</div>
+                                </div>
+                                <div class="h5">第二个操作数是对象
+                                    <div class="h6">第一个操作数值为 true 时返回该对象</div>
+                                </div>
+                                <div class="h5">两个操作数都是对象
+                                    <div class="h6">返回第二个操作数</div>
+                                </div>
+                                <div class="h5">一个操作数是 null
+                                    <div class="h6">返回 null</div>
+                                </div>
+                                <div class="h5">一个操作数是 NaN
+                                    <div class="h6">返回 NaN</div>
+                                </div>
+                                <div class="h5">一个操作数是 undefined
+                                    <div class="h6">返回 undefined</div>
+                                </div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">当且仅当两个运算数的值都是 true 时，才返回 true，否则返回 false</div>
+                                <div class="h5">短路操作（当第一个操作数的值是 false，则不会对第二个操作数进行求值）</div>
+                            </div>
+                        </div>
+                        <div class="h3">|| 逻辑或
+                            <div class="h4">规则
+                                <div class="h5">第一个操作数是对象
+                                    <div class="h6">返回第一个操作数</div>
+                                </div>
+                                <div class="h5">第一个操作数值为 false
+                                    <div class="h6">返回第二个操作数</div>
+                                </div>
+                                <div class="h5">两个操作数都是对象
+                                    <div class="h6">返回第一个操作数</div>
+                                </div>
+                                <div class="h5">两个操作数都是 null
+                                    <div class="h6">返回 null</div>
+                                </div>
+                                <div class="h5">两个操作数都是 NaN
+                                    <div class="h6">返回 NaN</div>
+                                </div>
+                                <div class="h5">两个操作数都是 undefined
+                                    <div class="h6">返回 undefined</div>
+                                </div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">当且仅当两个运算数的值都是 false 时，才返回 false，否则返回 true</div>
+                                <div class="h5">短路操作（当第一个操作数的值是 true，则不会对第二个操作数进行求值）</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">位运算符
+                        <div class="h3">基础知识
+                            <div class="h4">类型
+                                <div class="h5">有符号
+                                    <div class="h6">数值位 前 31 位</div>
+                                    <div class="h6">符号位 第 32 位（0：正数，1：负数）</div>
+                                </div>
+                                <div class="h5">无符号
+                                    <div class="h6">只能是正数</div>
+                                    <div class="h6">第 32 位表示数值</div>
+                                    <div class="h6">数值范围可以加大</div>
+                                </div>
+                            </div>
+                            <div class="h4">数值范围
+                                <div class="h5">-2147483648 ~ 2147483647</div>
+                            </div>
+                            <div class="h4">存储方式
+                                <div class="h5">正数
+                                    <div class="h6">纯二进制存储</div>
+                                    <div class="h6">31 位中每一位表示 2 的幂</div>
+                                    <div class="h6">用 0 补充无用位</div>
+                                </div>
+                                <div class="h5">负数
+                                    <div class="h6">二进制补码存储</div>
+                                    <div class="h6">补码的计算步骤
+                                        <div class="h6">1、确定该数字的非负版本的二进制表示</div>
+                                        <div class="h6">2、求得二进制反码，即要把 0 替换为 1，把 1 替换为 0</div>
+                                        <div class="h6">3、在二进制反码加上 1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h4">当做0来处理的特殊值
+                                <div class="h5">NaN</div>
+                                <div class="h5">Infinity</div>
+                            </div>
+                        </div>
+                        <div class="h3">逻辑位运算
+                            <div class="h4">返回值为 1
+                                <div class="h5">按位非 ~
+                                    <div class="h6">0</div>
+                                </div>
+                                <div class="h5">按位与 &
+                                    <div class="h6">对应位全为 1</div>
+                                </div>
+                                <div class="h5">按位或 |
+                                    <div class="h6">任何一位是 1</div>
+                                </div>
+                                <div class="h5">按位异或 ^
+                                    <div class="h6">即不同时为 0，也不同时为 1</div>
+                                </div>
+                            </div>
+                            <div class="h4">返回值为 0
+                                <div class="h5">按位非 ~
+                                    <div class="h6">1</div>
+                                </div>
+                                <div class="h5">按位与 &
+                                    <div class="h6">任何一位是 0</div>
+                                </div>
+                                <div class="h5">按位或 |
+                                    <div class="h6">对应位全为 0</div>
+                                </div>
+                                <div class="h5">按位异或 ^
+                                    <div class="h6">对应位全为 0 或 全为 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">位移操作
+                            <div class="h4">左移 &lt;&lt;
+                                <div class="h5">将数值的所有位左移指定的位数</div>
+                                <div class="h5">所有空位用 0 补充</div>
+                                <div class="h5">左移1位对其乘 2，左移 2 位对其乘 4，以此类推</div>
+                            </div>
+                            <div class="h4">有符号右移 &gt;&gt;
+                                <div class="h5">将数值的所有位右移指定的位数</div>
+                                <div class="h5">移除的位被舍弃</div>
+                                <div class="h5">保留符号位</div>
+                                <div class="h5">左移 1 位对其除 2，左移 2 位对其除 4，以此类推</div>
+                            </div>
+                            <div class="h4">无符号右移 &gt;&gt;&gt;
+                                <div class="h5">正数
+                                    <div class="h6">与有符号右移结果相同</div>
+                                </div>
+                                <div class="h5">负数
+                                    <div class="h6">会出现无限大的数值</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">复合赋值运算符
+                            <div class="h4">位操作符与等号结合，复合赋值不会有性能方面的提升</div>
+                        </div>
+                    </div>
+                    <div class="h2">其他运算符
+                        <div class="h3">?:
+                            <div class="h4">条件运算符，简洁的 if...else...</div>
+                        </div>
+                        <div class="h3">typeof
+                            <div class="h4">类型判定运算符</div>
+                        </div>
+                        <div class="h3">,
+                            <div class="h4">逗号，在一行语句中执行多个不同的操作</div>
+                        </div>
+                        <div class="h3">void
+                            <div class="h4">舍弃运算数的值，返回 undefined 作为表达式的值</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="03" class="anchor"></i>
+                <div class="h1">
+                    3.javascript数组
+                    <div class="h2">创建方法
+                        <div class="h3">空数组
+                            <div class="h4">var Obj = new Array();</div>
+                        </div>
+                        <div class="h3">指定长度数组
+                            <div class="h4">var Obj = new Array(Size);</div>
+                        </div>
+                        <div class="h3">指定元素数组
+                            <div class="h4">var Obj = new Array(元素1, 元素2, 元素3, ..., 元素N);</div>
+                        </div>
+                        <div class="h3">单维数组
+                            <div class="h4">var Obj = [元素1, 元素2, 元素3, ..., 元素N];</div>
+                        </div>
+                        <div class="h3">多维数组
+                            <div class="h4">var Obj = new Array([数组序列1], [数组序列2], [数组序列3], ..., [数组序列N]);</div>
+                        </div>
+                    </div>
+                    <div class="h2">基本操作
+                        <div class="h3">存取数组元素
+                            <div class="h4">单维数组
+                                <div class="h5">数组名[下标索引]</div>
+                            </div>
+                            <div class="h4">多维数组
+                                <div class="h5">数组名[外层数组下标][内层数组下标]</div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">数组长度是弹性的，可自由伸缩</div>
+                                <div class="h5">数组下标从 0 开始</div>
+                                <div class="h5">下标类型
+                                    <div class="h6">数值</div>
+                                    <div class="h6">非数值
+                                        <div class="h6">转为字符串</div>
+                                        <div class="h6">生成关联数组</div>
+                                        <div class="h6">下标将作为对象属性的名字</div>
+                                    </div>
+                                </div>
+                                <div class="h5">数组元素可添加到对象中</div>
+                            </div>
+                        </div>
+                        <div class="h3">增加数组
+                            <div class="h4">使用"[]"运算符指定一个新下标</div>
+                        </div>
+                        <div class="h3">删除数组
+                            <div class="h4">delete数组名[下标]</div>
+                        </div>
+                        <div class="h3">遍历数组
+                            <div class="h4">for（var 数组元素变量 in 数组）</div>
+                        </div>
+                    </div>
+                    <div class="h2">数组属性
+                        <div class="h3">constructor
+                            <div class="h4">引用数组对象的构造函数</div>
+                        </div>
+                        <div class="h3">length
+                            <div class="h4">返回数组的长度</div>
+                        </div>
+                        <div class="h3">prototype
+                            <div class="h4">通过增加属性和方法扩展数组定义</div>
+                        </div>
+                    </div>
+                    <div class="h2">ECMAScript3方法
+                        <div class="h3">添加
+                            <div class="h4">push()
+                                <div class="h5">在数组末尾添加数值</div>
+                            </div>
+                            <div class="h4">unshift()
+                                <div class="h5">在数组头部添加元素</div>
+                            </div>
+                            <div class="h4">concat()
+                                <div class="h5">合并两个数组</div>
+                            </div>
+                        </div>
+                        <div class="h3">删除
+                            <div class="h4">pop()
+                                <div class="h5">删除并返回数值的最后一个元素</div>
+                            </div>
+                            <div class="h4">shift()
+                                <div class="h5">删除并返回数组的第一个元素</div>
+                            </div>
+                        </div>
+                        <div class="h3">子数组
+                            <div class="h4">splice()
+                                <div class="h5">删除任意数量的项
+                                    <div class="h6">1、要删除的起始下标</div>
+                                    <div class="h6">2、要删除的项数</div>
+                                </div>
+                                <div class="h5">在指定位置插入指定的项
+                                    <div class="h6">1、起始下标</div>
+                                    <div class="h6">2、0（不删除任何项）</div>
+                                    <div class="h6">3、要插入的项</div>
+                                </div>
+                                <div class="h5">替换任意数量的项
+                                    <div class="h6">1、起始下标</div>
+                                    <div class="h6">2、要删除的项数</div>
+                                    <div class="h6">2、要插入的项</div>
+                                </div>
+                            </div>
+                            <div class="h4">slice()
+                                <div class="h5">功能
+                                    <div class="h6">从已有数组中选取部分元素构成新数组</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">1、返回项的起始位置</div>
+                                    <div class="h6">2、返回项的结束位置</div>
+                                    <div class="h6">特性：
+                                        <div class="h6">如果是负数，则用数组长度加上该值确定位置</div>
+                                        <div class="h6">启用位置实为数组的实际下标</div>
+                                        <div class="h6">结束位置的实际下标为结束数值减1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">数组排序
+                            <div class="h4">reverse()
+                                <div class="h5">颠倒数组中元素的顺序</div>
+                            </div>
+                            <div class="h4">sort()
+                                <div class="h5">功能
+                                    <div class="h6">对字符数组或数组数组进行排序</div>
+                                </div>
+                                <div class="h5">特性
+                                    <div class="h6">默认为按字符串比较</div>
+                                    <div class="h6">按数值大小比较，但是需函数支持（升序）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">数组转换
+                            <div class="h4">toString()
+                                <div class="h5">转换为字符串并返回</div>
+                            </div>
+                            <div class="h4">toLocaleString()
+                                <div class="h5">转换为本地格式字符串并返回</div>
+                            </div>
+                            <div class="h4">join()
+                                <div class="h5">用指定分隔赋分割数组并转换为字符串</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">ECMAScript5方法
+                        <div class="h3">位置方法
+                            <div class="h4">indexOf
+                                <div class="h5">从数组的起始位置开始查找</div>
+                            </div>
+                            <div class="h4">lastIndexOf
+                                <div class="h5">从数组的结束位置开始查找</div>
+                            </div>
+                            <div class="h4">参数：
+                                <div class="h5">1、要查找的项</div>
+                                <div class="h5">2、表示查找起点的位置索引</div>
+                            </div>
+                        </div>
+                        <div class="h3">替代方法
+                            <div class="h4">every
+                                <div class="h5">如果该函数对每一项都返回 true，则返回 true</div>
+                            </div>
+                            <div class="h4">filter
+                                <div class="h5">返回值为 true 的所有数组成员</div>
+                            </div>
+                            <div class="h4">forEach
+                                <div class="h5">无返回值</div>
+                            </div>
+                            <div class="h4">map
+                                <div class="h5">返回每次函数调用的结果数组</div>
+                            </div>
+                            <div class="h4">some
+                                <div class="h5">有任意一项返回true，则返回 true</div>
+                            </div>
+                            <div class="h4">参数：
+                                <div class="h5">接收参数
+                                    <div class="h6">1、要在每一项上运行函数</div>
+                                    <div class="h6">2、运行该函数的作用域对象</div>
+                                </div>
+                                <div class="h5">传入参数
+                                    <div class="h6">1、数组项的值 item</div>
+                                    <div class="h6">2、该项在数组中的位置 index</div>
+                                    <div class="h6">3、数组对象本身 array</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">缩小方法
+                            <div class="h4">reduce
+                                <div class="h5">从数组起始位开始遍历</div>
+                            </div>
+                            <div class="h4">reduceRight
+                                <div class="h5">从数组末尾开始遍历</div>
+                            </div>
+                            <div class="h4">参数：
+                                <div class="h5">接收参数
+                                    <div class="h6">1、每一项调用的函数</div>
+                                    <div class="h6">2、作为缩小基础的初始值</div>
+                                </div>
+                                <div class="h5">传入参数
+                                    <div class="h6">前一个值 prev</div>
+                                    <div class="h6">当前值 cur</div>
+                                    <div class="h6">项的索引 index</div>
+                                    <div class="h6">数组对象 array</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="04" class="anchor"></i>
+                <div class="h1">
+                    4.javascript.流程语句
+                    <div class="h2">循环语句
+                        <div class="h3">while
+                            <div class="h4">语法
+                                <div class="h5">while(条件表达式){循环执行代码段}</div>
+                            </div>
+                            <div class="h4">流程
+                                <div class="h5">1、判断条件表达式</div>
+                                <div class="h5">2、当值为 true 时循环执行代码段</div>
+                                <div class="h5">3、当值为 false 时退出循环体</div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">先检查条件，再执行循环体</div>
+                                <div class="h5">条件不满足则循环一次也不执行</div>
+                            </div>
+                            <div class="h4">时机
+                                <div class="h5">一个动作被重复执行到满足某个条件时</div>
+                            </div>
+                        </div>
+                        <div class="h3">do...while...
+                            <div class="h4">语法
+                                <div class="h5">do(循环执行代码段)while{条件表达式}</div>
+                            </div>
+                            <div class="h4">流程
+                                <div class="h5">1、先执行循环体内代码段，再进行判断</div>
+                                <div class="h5">2、如果表达式的值为 true，则重复执行代码段</div>
+                                <div class="h5">3、如果表达式的值为 false，则退出循环体</div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">先执行循环体，再进行条件判断</div>
+                                <div class="h5">循环体内代码至少执行一次</div>
+                            </div>
+                            <div class="h4">时机
+                                <div class="h5">希望一个动作至少被执行一次时</div>
+                            </div>
+                        </div>
+                        <div class="h3">for
+                            <div class="h4">语法
+                                <div class="h5">for(循环变量 = 初值; 循环条件; 递增/递减计数器){循环代码段}</div>
+                            </div>
+                            <div class="h4">流程
+                                <div class="h5">1、用循环变量初始值与循环条件相比较，确定返回值</div>
+                                <div class="h5">2、如果表达式的值为 true，则执行循环体</div>
+                                <div class="h5">3、执行完一次后进行递增/递减运算</div>
+                                <div class="h5">4、将运算结果与循环条件相比较</div>
+                                <div class="h5">5、如果返回值为 true，则继续执行循环体，如果返回值为 false，则退出循环体</div>
+                            </div>
+                            <div class="h4">时机
+                                <div class="h5">重复一个动作到一定次数时</div>
+                            </div>
+                        </div>
+                        <div class="h3">for...in...
+                            <div class="h4">语法
+                                <div class="h5">for(声明变量 in 对象){代码段}</div>
+                            </div>
+                            <div class="h4">作用
+                                <div class="h5">枚举对象属性</div>
+                            </div>
+                            <div class="h4">注意事项
+                                <div class="h5">循环输出的属性顺序不可预知</div>
+                                <div class="h5">对象的值不能是 null 或 undefined</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">跳转语句
+                        <div class="h3">return
+                            <div class="h4">终止函数体的运行，并返回一个值</div>
+                        </div>
+                        <div class="h3">break
+                            <div class="h4">终止整个循环，不再进行判断</div>
+                        </div>
+                        <div class="h3">continue
+                            <div class="h4">结束本次循环，接着去判断是否执行下次循环</div>
+                        </div>
+                    </div>
+                    <div class="h2">选择语句
+                        <div class="h3">if
+                            <div class="h4">语句
+                                <div class="h5">if(条件表达式1){代码段1}else if(条件表达式2){代码段2}else{代码段3}</div>
+                            </div>
+                            <div class="h4">流程
+                                <div class="h5">1、判断条件 1，如果返回值为 true，则执行代码段 1</div>
+                                <div class="h5">2、如果条件 1 的返回值为false，则跳过语句块 1 并检测条件 2</div>
+                                <div class="h5">3、如果所有表达式的值均为 false，则执行 else 后面的语句</div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">结构复杂，可嵌套</div>
+                                <div class="h5">可测试多个条件表达式</div>
+                                <div class="h5">表达式的值具有线性特征</div>
+                                <div class="h5">表达式的值是动态的</div>
+                                <div class="h5">适用于任何类型的数据</div>
+                                <div class="h5">可处理复杂的逻辑关系</div>
+                            </div>
+                        </div>
+                        <div class="h3">switch
+                            <div class="h4">语句
+                                <div class="h5">switch(条件表达式){ case 标签 1: 代码段 1; break; case 标签 2: 代码段 2; break; ...default: 代码段 N; }</div>
+                            </div>
+                            <div class="h4">流程
+                                <div class="h5">1、计算表达式的值，并与各标签相比较</div>
+                                <div class="h5">2、若找到与之匹配的标签，则执行其后的代码段</div>
+                                <div class="h5">3、若没有找到 与之匹配的标签，则直接执行 default 之后的代码段</div>
+                            </div>
+                            <div class="h4">格式
+                                <div class="h5">case 标签为常量，可以是字符串或数字</div>
+                                <div class="h5">每个标签均以冒号 ":" 结束</div>
+                                <div class="h5">虽然 break 与 default 为可选项，但为了逻辑清楚最好不要省略</div>
+                                <div class="h5">case 标签的值必须和条件表达式的值完全匹配</div>
+                            </div>
+                            <div class="h4">特性
+                                <div class="h5">结构简洁，专为多重选择设计</div>
+                                <div class="h5">仅可测试一条条件表达式</div>
+                                <div class="h5">表达式的值具有离散性</div>
+                                <div class="h5">表达式的值是固定的，不会动态变化的</div>
+                                <div class="h5">仅能应用整数，枚举，字符串等类型数据</div>
+                                <div class="h5">仅能处理多个枚举型逻辑关系</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">异常处理语句
+                        <div class="h3">throw
+                            <div class="h4">主动抛出异常</div>
+                        </div>
+                        <div class="h3">try
+                            <div class="h4">知名需要处理的代码段</div>
+                        </div>
+                        <div class="h3">catch
+                            <div class="h4">获取异常</div>
+                        </div>
+                        <div class="h3">finally
+                            <div class="h4">后期处理</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="05" class="anchor"></i>
+                <div class="h1">
+                    5.javascript字符串函数
+                    <div class="h2">查找方法
+                        <div class="h3">字符方法
+                            <div class="h4">charAt()
+                                <div class="h5">功能
+                                    <div class="h6">返回字符串中第 N 个字符</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">超出范围，返回空字符串</div>
+                                </div>
+                                <div class="h5">返回值
+                                    <div class="h6">string 中第 N 个字符的实际值</div>
+                                </div>
+                            </div>
+                            <div class="h4">charCodeAt()
+                                <div class="h5">功能
+                                    <div class="h6">返回字符串中第 N 个字符串代码</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">超出范围，返回NaN</div>
+                                </div>
+                                <div class="h5">返回值
+                                    <div class="h6">内容（string 中第 N 个字符的 Unicode 编码）</div>
+                                    <div class="h6">范围（0 ~ 65535 之间的 16 位整数）</div>
+                                </div>
+                            </div>
+                            <div class="h4">fromCharCode()
+                                <div class="h5">功能
+                                    <div class="h6">根据字符编码创建字符串</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">0 个或多个整数，代表字符的 Unicode 编码</div>
+                                </div>
+                                <div class="h5">返回值
+                                    <div class="h6">由指定编码字符组成的新字符串</div>
+                                </div>
+                                <div class="h5">特性
+                                    <div class="h6">静态方法，实为构造函数 String() 的属性</div>
+                                </div>
+                            </div>
+                            <div class="h4">以上三者之间的关系
+                                <div class="h5">charAt 与 charCodeAt 的共性
+                                    <div class="h6">功能
+                                        <div class="h6">根据下标查找指定字符</div>
+                                    </div>
+                                    <div class="h6">参数
+                                        <div class="h6">N：要查询字符下标</div>
+                                        <div class="h6">有笑范围：0 ~ length-1 之间</div>
+                                    </div>
+                                </div>
+                                <div class="h5">charCodeAt 与 fromCharCode
+                                    <div class="h6">互为反向操作</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">位置方法
+                            <div class="h4">indexOf()
+                                <div class="h5">从前向后检索字符串，看其是否含有指定子串</div>
+                            </div>
+                            <div class="h4">lastIndexOf()
+                                <div class="h5">从后向前检索字符串，看其是否含有指定子串</div>
+                            </div>
+                            <div class="h4">以上两者的共性
+                                <div class="h5">功能
+                                    <div class="h6">根据指定字符串查找下标位置</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">必选
+                                        <div class="h6">将要查询的子字符串</div>
+                                    </div>
+                                    <div class="h6">可选
+                                        <div class="h6">开始查找的位置下标
+                                            <div class="h6">值为负数：视作0</div>
+                                            <div class="h6">省略：从默认起始位置开始查找</div>
+                                            <div class="h6">超出 0 ~ length-1：返回-1</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="h5">返回值
+                                    <div class="h6">找到
+                                        <div class="h6">子串首次出现的下标</div>
+                                    </div>
+                                    <div class="h6">未找到
+                                        <div class="h6">返回 -1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">匹配方法
+                            <div class="h4">match()
+                                <div class="h5">功能
+                                    <div class="h6">找到一个或多个正则表达式的匹配</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">要进行模式匹配的正则表达式</div>
+                                    <div class="h6">非正则表达式，将其传递给 RegExp() 构造函数，并转换为正则表达式对象</div>
+                                </div>
+                                <div class="h5">返回值（存放匹配结果的数组）
+                                    <div class="h6">有全局标记 g（执行全局检索）
+                                        <div class="h6">找到（返回数组）
+                                            <div class="h6">内容
+                                                <div class="h6">所有匹配的子串</div>
+                                            </div>
+                                            <div class="h6">缺陷
+                                                <div class="h6">没有派生属性</div>
+                                                <div class="h6">不提供与子表达式匹配的文本信息</div>
+                                                <div class="h6">不声明每个匹配子串的位置</div>
+                                            </div>
+                                        </div>
+                                        <div class="h6">没找到（返回 null）</div>
+                                    </div>
+                                    <div class="h6">无有全局标记 g（执行一次匹配）
+                                        <div class="h6">找到（返回数组）
+                                            <div class="h6">内容
+                                                <div class="h6">第 0 个元素：匹配文本</div>
+                                                <div class="h6">其他元素：与正则表达式匹配的文本</div>
+                                            </div>
+                                            <div class="h6">属性
+                                                <div class="h6">input：调用该方法的字符串对象</div>
+                                                <div class="h6">index：匹配为本的其实字符在字符串中的位置</div>
+                                                <div class="h6">lastIndex：匹配为本的末尾字符在字符串中的位置</div>
+                                            </div>
+                                        </div>
+                                        <div class="h6">没找到（返回 null）</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h4">search()
+                                <div class="h5">功能
+                                    <div class="h6">检索字符串中与正则表达式匹配的子串</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">与 match() 相同</div>
+                                </div>
+                                <div class="h5">返回值
+                                    <div class="h6">找到（字符串中第一个与正则表达式相匹配的字符串的其实位置）</div>
+                                    <div class="h6">未找到（返回 -1）</div>
+                                </div>
+                                <div class="h5">特性
+                                    <div class="h6">忽略去阿奴标记 g 和 lastIndex() 属性</div>
+                                </div>
+                            </div>
+                            <div class="h4">replace()
+                                <div class="h5">功能
+                                    <div class="h6">替换一个与正则表达式匹配的子串</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">参数 1（需要进行替换正则表达式对象或字符串）</div>
+                                    <div class="h6">参数 2（替换文本或替换函数）</div>
+                                </div>
+                                <div class="h5">特性
+                                    <div class="h6">如果参数 1 仅为字符串，则进行一次匹配替换，若代替所有子串则必须制定全局标记 g</div>
+                                    <div class="h6">如果参数 2 仅为字符串，则可使用特殊字符序列
+                                        <div class="h6">$$:$</div>
+                                        <div class="h6">$&:匹配整个模式的子字符串</div>
+                                        <div class="h6">$':匹配的字符串之前的子字符串</div>
+                                        <div class="h6">$':匹配的字符串之前的子字符串</div>
+                                        <div class="h6">$n:匹配第 N 个捕获组的字符串 N = 0 ~ 9</div>
+                                        <div class="h6">$nn:匹配第 NN 个捕获组的子字符串 NN = 01 ~ 99</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h4">split()
+                                <div class="h5">功能
+                                    <div class="h6">根据指定分隔符将字符串分隔成多个子串，并返回成数组</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">必须（指定的分隔符）</div>
+                                    <div class="h6">可能（指定数组的长度）</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">操作方法
+                        <div class="h3">拼接方法
+                            <div class="h4">concat()
+                                <div class="h5">语法
+                                    <div class="h6">string.concat(varue,...)</div>
+                                </div>
+                                <div class="h5">功能
+                                    <div class="h6">连接字符串</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">要连续到 string 上的一个或多个值</div>
+                                </div>
+                                <div class="h5">返回值
+                                    <div class="h6">把所有参数都连续到字符串 string 上得到的新字符串</div>
+                                </div>
+                                <div class="h5">特性
+                                    <div class="h6">功能与 "+" 相同原始字符串的实际值并未被真正修改</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">截取方法
+                            <div class="h4">根据下标截取子串
+                                <div class="h5">slice()
+                                    <div class="h6">负值参数，与字符长度相同</div>
+                                </div>
+                                <div class="h5">substring()
+                                    <div class="h6">负值参数，转换为 0</div>
+                                </div>
+                                <div class="h5">两者共性
+                                    <div class="h6">参数 2 的子字符最后一个字符后面的下标</div>
+                                </div>
+                            </div>
+                            <div class="h4">根据长度截取子串
+                                <div class="h5">substr()
+                                    <div class="h6">参数 2
+                                        <div class="h6">返回的子字符串</div>
+                                    </div>
+                                    <div class="h6">负值参数
+                                        <div class="h6">参数 1（与字符串长度相同）</div>
+                                        <div class="h6">参数 2（转换为 0）</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h4">两者的共性
+                                <div class="h5">功能
+                                    <div class="h6">截取被操作字符串中的子串</div>
+                                </div>
+                                <div class="h5">参数 1
+                                    <div class="h6">指定子串的开始位置</div>
+                                </div>
+                                <div class="h5">省略参数 2
+                                    <div class="h6">以字符串长度为结束位</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">空格处理
+                            <div class="h4">trim
+                                <div class="h5">清除前置及后缀空格</div>
+                            </div>
+                            <div class="h4">trimLeft
+                                <div class="h5">清除前置空格</div>
+                            </div>
+                            <div class="h4">trimRight
+                                <div class="h5">清除后缀空格</div>
+                            </div>
+                        </div>
+                        <div class="h3">比较方法
+                            <div class="h4">localCompare
+                                <div class="h5">功能（用本地特定顺序比较两个字符串）</div>
+                                <div class="h5">参数（与元字符串进行比较的字符串）</div>
+                                <div class="h5">返回值（说明比较结果的数字）
+                                    <div class="h6">负值（原字符串 &lt; 参数字符串）</div>
+                                    <div class="h6">0（原字符串 = 参数字符串）</div>
+                                    <div class="h6">真值（原字符串 &gt; 参数字符串）</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">编码方法
+                        <div class="h3">字符串常规编码与解码
+                            <div class="h4">escape()</div>
+                            <div class="h4">unescape()</div>
+                        </div>
+                        <div class="h3">URI 字符串编码与解码
+                            <div class="h4">encodeURI()</div>
+                            <div class="h4">decodeURI()</div>
+                        </div>
+                        <div class="h3">URI 组件编码与解码
+                            <div class="h4">encodeURIComponent()</div>
+                            <div class="h4">decodeURIComponent()</div>
+                        </div>
+                    </div>
+                    <div class="h2">转换方法
+                        <div class="h3">大小写转换
+                            <div class="h4">转为大写
+                                <div class="h5">toUpperCase()</div>
+                                <div class="h5">toLocaleUpperCase() 本地</div>
+                            </div>
+                            <div class="h4">转为小写
+                                <div class="h5">toLowerCase()</div>
+                                <div class="h5">toLocaleLowerCase() 本地</div>
+                            </div>
+                        </div>
+                        <div class="h3">代码转换
+                            <div class="h4">用 js 动态格式化 html，不具语义性，舍弃</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="06" class="anchor"></i>
+                <div class="h1">
+                    6.javascript函数基础
+                    <div class="h2">定义方法
+                        <div class="h3">静态方法
+                            <div class="h4">function 函数名([虚参列表]){函数体; return[函数返回值;]}</div>
+                        </div>
+                        <div class="h3">动态匿名方法
+                            <div class="h4">var 函数名 = new function (["虚参列表"], "函数体");</div>
+                        </div>
+                        <div class="h3">直接量方法
+                            <div class="h4">函数名 = function ([虚参列表]){函数体;}</div>
+                        </div>
+                    </div>
+                    <div class="h2">调用方法
+                        <div class="h3">直接调用
+                            <div class="h4">函数名（实参列表）</div>
+                        </div>
+                        <div class="h3">在连接中调用
+                            <div class="h4">&lt;a href="javascript:函数名()"&gt;描文字&lt;/a&gt;</div>
+                        </div>
+                        <div class="h3">在事件中调用
+                            <div class="h4">事件类型 = "函数名()"</div>
+                        </div>
+                        <div class="h3">递归调用
+                            <div class="h4">定义
+                                <div class="h5">在函数体内部调用函数自身</div>
+                            </div>
+                            <div class="h4">格式
+                                <div class="h5">function 函数名(){代码; 函数名();}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">方法
+                        <div class="h3">apply
+                            <div class="h4">将函数作为对象的方法来调用</div>
+                            <div class="h4">将参数以数组形式传递给该方法</div>
+                        </div>
+                        <div class="h3">call
+                            <div class="h4">将函数作为对象的方法来调用</div>
+                            <div class="h4">将指定参数传递给该方法</div>
+                        </div>
+                        <div class="h3">toString
+                            <div class="h4">返回函数的字符串表示</div>
+                        </div>
+                    </div>
+                    <div class="h2">arguments对象
+                        <div class="h3">功能
+                            <div class="h4">存放实参的参数列表</div>
+                        </div>
+                        <div class="h3">特性
+                            <div class="h4">仅能在函数体内使用</div>
+                            <div class="h4">带有下标属性，但并非数组</div>
+                            <div class="h4">函数声明时自动初始化</div>
+                        </div>
+                        <div class="h3">属性
+                            <div class="h4">length（获取函数实参的长度）</div>
+                            <div class="h4">callee（返回当前正在指向的函数）</div>
+                            <div class="h4">caler（返回调用当前正在执行函数的函数名）</div>
+                        </div>
+                    </div>
+                    <div class="h2">函数参数
+                        <div class="h3">参数类型
+                            <div class="h4">形参
+                                <div class="h5">定义函数时使用的参数</div>
+                                <div class="h5">接收调用该函数时传递的参数</div>
+                            </div>
+                            <div class="h4">实参
+                                <div class="h5">调用函数时传递给函数的实际参数</div>
+                            </div>
+                        </div>
+                        <div class="h3">特性
+                            <div class="h4">参数个数没有限制
+                                <div class="h5">实参 &lt; 形参
+                                    <div class="h6">多余形参 = undefined</div>
+                                </div>
+                                <div class="h5">实参 &gt; 形参
+                                    <div class="h6">多余实参被忽略</div>
+                                </div>
+                            </div>
+                            <div class="h4">参数的数据类型没有限制</div>
+                            <div class="h4">通过 arguments 对象访问参数数组</div>
+                            <div class="h4">番薯始终按值传递
+                                <div class="h5">基本类型（传值）</div>
+                                <div class="h5">引用类型（传址）</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">指针标识
+                        <div class="h3">this
+                            <div class="h4">指向当前操作对象</div>
+                        </div>
+                        <div class="h3">callee
+                            <div class="h4">指向参数集合所属函数</div>
+                        </div>
+                        <div class="h3">prototype
+                            <div class="h4">指向函数附带的原型对象</div>
+                        </div>
+                        <div class="h3">constructor
+                            <div class="h4">指向创建该对象的构造函数</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="07" class="anchor"></i>
+                <div class="h1">7.javascript基础dom操作
+                    <div class="h2">获取节点
+                        <div class="h3">document
+                            <div class="h4">getElementById
+                                <div class="h5">语法：document.getElementById（元素）</div>
+                                <div class="h5">功能：通过元素 ID 获取节点</div>
+                            </div>
+                            <div class="h4">getElementsByName
+                                <div class="h5">语法：document.getElementsByName（元素 name 属性）</div>
+                                <div class="h5">功能：通过元素 name 属性获取节点</div>
+                            </div>
+                            <div class="h4">getElementsByTagName
+                                <div class="h5">语法：document.getElementsByTagName（元素标签）</div>
+                                <div class="h5">功能：通过元素标签获取节点</div>
+                            </div>
+                        </div>
+                        <div class="h3">节点指针
+                            <div class="h4">firstChild
+                                <div class="h5">语法：父节点.firstChild</div>
+                                <div class="h5">功能：获取元素的首个子节点</div>
+                            </div>
+                            <div class="h4">lastChild
+                                <div class="h5">语法：父节点.lastChild</div>
+                                <div class="h5">功能：获取元素的最后一个子节点</div>
+                            </div>
+                            <div class="h4">childNodes
+                                <div class="h5">语法：父节点.childNodes</div>
+                                <div class="h5">功能：获取元素的子节点列表</div>
+                            </div>
+                            <div class="h4">previousSibling
+                                <div class="h5">语法：兄弟节点.previousSibling</div>
+                                <div class="h5">功能：获取已知节点的前一个节点</div>
+                            </div>
+                            <div class="h4">nextSibling
+                                <div class="h5">语法：兄弟节点.nextSibling</div>
+                                <div class="h5">功能：获取已知节点的后一个节点</div>
+                            </div>
+                            <div class="h4">parentNode
+                                <div class="h5">语法：子节点.parentNode</div>
+                                <div class="h5">功能：获取已知节点的父节点</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">节点操作
+                        <div class="h3">创建节点
+                            <div class="h4">createElement
+                                <div class="h5">语法：document.createElement(元素标签)</div>
+                                <div class="h5">功能：创建元素节点</div>
+                            </div>
+                            <div class="h4">createAttribute
+                                <div class="h5">语法：document.createAttribute</div>
+                                <div class="h5">功能：创建属性节点</div>
+                            </div>
+                            <div class="h4">createTextNode
+                                <div class="h5">语法：document.createTextNode(文本内容)</div>
+                                <div class="h5">功能：创建文本节点</div>
+                            </div>
+                        </div>
+                        <div class="h3">插入节点
+                            <div class="h4">appendChild
+                                <div class="h5">语法：appendChild(所添加的新节点)</div>
+                                <div class="h5">功能：向节点的子节点列表末尾添加新的子节点</div>
+                            </div>
+                            <div class="h4">insertBefore
+                                <div class="h5">语法：insertBefore(所要添加的新节点，已知子节点)</div>
+                                <div class="h5">功能：在已知的子节点前插入一个新的子节点</div>
+                            </div>
+                        </div>
+                        <div class="h3">替换节点
+                            <div class="h4">replaceChild
+                                <div class="h5">语法：replaceChild(要插入新的元素，将被替换的老元素)</div>
+                                <div class="h5">功能：将某个子节点替换为另一个</div>
+                            </div>
+                        </div>
+                        <div class="h3">复制节点
+                            <div class="h4">cloneNode
+                                <div class="h5">语法：需要被复制的节点.cloneNode(true/false)</div>
+                                <div class="h5">功能：穿件指定节点的副本</div>
+                                <div class="h5">参数
+                                    <div class="h6">true：复制当前节点及其所有子节点</div>
+                                    <div class="h6">false：仅复制当前节点</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">删除节点
+                            <div class="h4">removeChild
+                                <div class="h5">语法：removeChild(要删除的节点)</div>
+                                <div class="h5">功能：删除指定的节点</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">属性操作
+                        <div class="h3">获取属性
+                            <div class="h4">getAttribute
+                                <div class="h5">语法：元素节点.getAttribute(元素属性名)</div>
+                                <div class="h5">功能：获取元素节点中指定属性的属性值</div>
+                            </div>
+                        </div>
+                        <div class="h3">设置属性
+                            <div class="h4">setAttribute
+                                <div class="h5">语法：元素节点.setAttribute(属性名, 属性值)</div>
+                                <div class="h5">功能：创建或改变元素节点的属性</div>
+                            </div>
+                        </div>
+                        <div class="h3">删除属性
+                            <div class="h4">removeAttribute
+                                <div class="h5">语法：元素节点.removeAttribute(属性名)</div>
+                                <div class="h5">功能：删除元素中的指定属性</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">文本操作
+                        <div class="h3">insertData(offset, String)
+                            <div class="h4">从 offset 指定的位置插入 string</div>
+                        </div>
+                        <div class="h3">appendData(string)
+                            <div class="h4">将 string 插入到文本节点的末尾处</div>
+                        </div>
+                        <div class="h3">deleteDate(offset, count)
+                            <div class="h4">从 offset 起删除 count 个字符</div>
+                        </div>
+                        <div class="h3">replaceData(off, count, string)
+                            <div class="h4">从 off 将count 个字符用 string 代替</div>
+                        </div>
+                        <div class="h3">splitData(offset)
+                            <div class="h4">从 offset 起将文腾节点分成两个节点</div>
+                        </div>
+                        <div class="h3">substring(offset, count)
+                            <div class="h4">返回由 offset 起的 count 个节点</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i id="08" class="anchor"></i>
+                <div class="h1">8.javascript正则表达式
+                    <div class="h2">创建
+                        <div class="h3">创建方式
+                            <div class="h4">字面量
+                                <div class="h5">var 变量名 = /表达式/模式修饰符</div>
+                            </div>
+                            <div class="h4">构造函数
+                                <div class="h5">var 变量名 = new EegExp("表达式", "模式修饰符")</div>
+                            </div>
+                        </div>
+                        <div class="h3">创建说明
+                            <div class="h4">表达式
+                                <div class="h5">单个字符与数字
+                                    <div class="h6">. ：匹配除换行符之外的任意字符</div>
+                                    <div class="h6">[a-z0-9] ：匹配在方括号中的任意字符</div>
+                                    <div class="h6">[^a-z0-9] ：匹配不在方括号中的任意字符</div>
+                                    <div class="h6">\d：匹配数字</div>
+                                    <div class="h6">\D：匹配非数字</div>
+                                    <div class="h6">\w：匹配字母</div>
+                                    <div class="h6">\W：匹配非字母</div>
+                                </div>
+                                <div class="h5">空白字符
+                                    <div class="h6">\0：匹配 null 字符</div>
+                                    <div class="h6">\b：匹配空格字符</div>
+                                    <div class="h6">\f：匹配进字符</div>
+                                    <div class="h6">\n：匹配换行符</div>
+                                    <div class="h6">\r：匹配回车符</div>
+                                    <div class="h6">\s：匹配空白字符、空格、制表符或换行符</div>
+                                    <div class="h6">\S：匹配非空白字符</div>
+                                    <div class="h6">\t：匹配制表符</div>
+                                </div>
+                                <div class="h5">定位符
+                                    <div class="h6">^：行首匹配</div>
+                                    <div class="h6">$：行尾匹配</div>
+                                    <div class="h6">\A：只匹配字符串的开始处</div>
+                                    <div class="h6">\b：匹配单词边界，词在[]内无效</div>
+                                    <div class="h6">\B：匹配非单词边界</div>
+                                    <div class="h6">\z：只匹配字符串结束处</div>
+                                    <div class="h6">\Z：只匹配字符串结尾处或行尾</div>
+                                    <div class="h6">\G：匹配当前搜索的开始位置</div>
+                                </div>
+                                <div class="h5">限定符
+                                    <div class="h6">x?：匹配 0 个或 1 个 x</div>
+                                    <div class="h6">x*：匹配 0 个或任意多个 x</div>
+                                    <div class="h6">x+：匹配至少 1 个 x</div>
+                                    <div class="h6">x{m, n}：匹配至少 m 个,最多N 个 x</div>
+                                </div>
+                                <div class="h5">分组
+                                    <div class="h6">(?:x)：匹配 x 但不记录匹配结果</div>
+                                    <div class="h6">x(?=y)：当 x 后接 y 时，匹配 x</div>
+                                    <div class="h6">x(?!y)：当 x后不是 y 时，匹配 x</div>
+                                </div>
+                                <div class="h5">引用
+                                    <div class="h6">\1...\9：表示$1...$9，返回 9 个在模式匹配期间找到的、最近保存的部分</div>
+                                </div>
+                                <div class="h5">或模式
+                                    <div class="h6">x|y|x：匹配 x 或 y 或 z</div>
+                                </div>
+                            </div>
+                            <div class="h4">模式修饰符
+                                <div class="h5">g：全局模式，引用于所有字符串</div>
+                                <div class="h5">i：区分大小写模式</div>
+                                <div class="h5">m：多行匹配模式</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">属性
+                        <div class="h3">实例属性
+                            <div class="h4">global
+                                <div class="h5">检测是否设置 g 标记</div>
+                            </div>
+                            <div class="h4">ignoreCase
+                                <div class="h5">检测是否设置 i 标记</div>
+                            </div>
+                            <div class="h4">multiline
+                                <div class="h5">检测是否设置 m 标记</div>
+                            </div>
+                            <div class="h4">lastIndex
+                                <div class="h5">开始检索下一个匹配项的字符位置</div>
+                            </div>
+                            <div class="h4">source
+                                <div class="h5">返回正则表达式的字符串表示</div>
+                            </div>
+                            <div class="h4">lastIndex
+                                <div class="h5">返回被查找字符串中下一次成功匹配的开始位置</div>
+                            </div>
+                        </div>
+                        <div class="h3">构造函数属性
+                            <div class="h4">$_ input
+                                <div class="h5">返回最近一次匹配的字符串</div>
+                            </div>
+                            <div class="h4">$& lastMatch
+                                <div class="h5">返回最近一次的匹配项</div>
+                            </div>
+                            <div class="h4">$+ lastParen
+                                <div class="h5">返回最近一次匹配的捕获组</div>
+                            </div>
+                            <div class="h4">$' leftContext
+                                <div class="h5">返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符</div>
+                            </div>
+                            <div class="h4">$' rightContext
+                                <div class="h5">返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符</div>
+                            </div>
+                            <div class="h4">$* multiline
+                                <div class="h5">检测表达式是否曹勇多行模式匹配 m</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h2">方法
+                        <div class="h3">实例方法
+                            <div class="h4">exec
+                                <div class="h5">功能
+                                    <div class="h6">在字符串中执行匹配检索，返回结果数组</div>
+                                </div>
+                                <div class="h5">参数
+                                    <div class="h6">要应用模式匹配的字符串</div>
+                                </div>
+                                <div class="h5">特性
+                                    <div class="h6">使用全局标记 g
+                                        <div class="h6">持续查找所有匹配项并返回</div>
+                                    </div>
+                                    <div class="h6">不使用全局标记 g
+                                        <div class="h6">始终返回第一个匹配项信息</div>
+                                    </div>
+                                </div>
+                                <div class="h5">执行过程
+                                    <div class="h6">1、检索字符串参数，获取正则表达式匹配文本</div>
+                                    <div class="h6">2、找到匹配文本则返回一个数组
+                                        <div class="h6">第 0 个元素：与整个模式匹配的字符串</div>
+                                        <div class="h6">其他元素：与捕获组匹配的字符串</div>
+                                    </div>
+                                    <div class="h6">3、否则返回 null</div>
+                                </div>
+                                <div class="h5">派生属性
+                                    <div class="h6">index 匹配项在字符串中的位置</div>
+                                    <div class="h6">input 应用正则表达式的字符串</div>
+                                    <div class="h6">length 返回数组元素个数</div>
+                                </div>
+                            </div>
+                            <div class="h4">test
+                                <div class="h5">功能
+                                    <div class="h6">在字符串中测试模式匹配，返回 true 或 false</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h3">字符串方法
+                            <div class="h4">match
+                                <div class="h5">找到一个或多个正则表达式的匹配</div>
+                            </div>
+                            <div class="h4">replace
+                                <div class="h5">替换与正则表达式匹配的子串</div>
+                            </div>
+                            <div class="h4">search
+                                <div class="h5">检索与正则表达式相匹配的值</div>
+                            </div>
+                            <div class="h4">split
+                                <div class="h5">把字符串分割为字符串数组</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

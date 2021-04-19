@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/scrollTopControl.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="subMenu">
+    <div class="wrap">
+        <div class="subTitle">css3专区：</div>
+        <ul>
+            <li><a href="#01" class="click">css3兼容</a></li>
+            <li><a href="#02">transform（转换）</a></li>
+            <li><a href="#03">transition（过渡）</a></li>
+            <li><a href="#04">@keyframes（关键帧）</a></li>
+            <li><a href="#05">animation（动画）</a></li>
+            <li><a href="#06">css3属性</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container fn-clear">
+    <div class="wrap">
+        <div class="contBox">
+            <i id="01" class="anchor"></i>
+            <h4>css3兼容</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>transform（转换）、transition（过渡）、@keyframes（关键帧）、animation（动画）</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>添加前缀</b></td>
+                    <td><b>兼容浏览器</b></td>
+                </tr>
+                <tr>
+                    <td>-webkit-</td>
+                    <td>Safari and Chrome<span class="fn-right">（苹果、谷歌）</span></td>
+                </tr>
+                <tr>
+                    <td>-moz-</td>
+                    <td>Firefox<span class="fn-right">（火狐）</span></td>
+                </tr>
+                <tr>
+                    <td>-ms-</td>
+                    <td>IE9<span class="fn-right">（IE浏览器）</span></td>
+                </tr>
+                <tr>
+                    <td>-o-</td>
+                    <td>Opera<span class="fn-right">（世界之窗）</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="02" class="anchor"></i>
+            <h4>transform（转换）</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>scale（伸缩）、skew（倾斜）、translate（移动）、rotate（旋转）、rotateX（3D旋转）、rotateY（3D旋转）、matrix（整体转换）</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>scale</td>
+                    <td>transform: scale(3,6);<span class="fn-right">宽度变为 3 倍，高度变为 6 倍（伸缩）</span></td>
+                </tr>
+                <tr>
+                    <td>skew</td>
+                    <td>transform: skew(30deg,60deg);<span class="fn-right">围绕 X 轴翻转 30 度，围绕 Y 轴翻转 60 度（倾斜）</span></td>
+                </tr>
+                <tr>
+                    <td>translate</td>
+                    <td>transform: translate(30px,60px);<span class="fn-right">左移 30 px，上移 60 px（移动）</span></td>
+                </tr>
+                <tr>
+                    <td>rotate</td>
+                    <td>transform: rotate(30deg);<span class="fn-right">顺时针旋转 30 度（旋转）</span></td>
+                </tr>
+                <tr>
+                    <td>rotateX</td>
+                    <td>transform: rotateX(60deg);<span class="fn-right">3D水平顺时针旋转 60 度（3D水平旋转）</span></td>
+                </tr>
+                <tr>
+                    <td>rotateY</td>
+                    <td>transform: rotateY(90deg);<span class="fn-right">3D垂直顺时针旋转 90 度（3D垂直旋转）</span></td>
+                </tr>
+                <tr>
+                    <td>matrix</td>
+                    <td>transform:matrix(1,0,0,1,0,0);<span class="fn-right">伸缩X、倾斜X、倾斜Y、伸缩Y、移动X、移动Y（整体转换）</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="03" class="anchor"></i>
+            <h4>transition（过渡）</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>property（css属性）、duration（用时长度）、timing-function（过渡效果）、delay（开始时间）</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>transition</td>
+                    <td>transition: transform 2s linear 1s;<span class="fn-right">transform，用时2s，匀速，1s后开始</span></td>
+                </tr>
+                <tr>
+                    <td>transition-property</td>
+                    <td>transition-property:transform<span class="fn-right">属性名称：transform（属性名称）</span></td>
+                </tr>
+                <tr>
+                    <td>transition-duration</td>
+                    <td>transition-duration: 2s;<span class="fn-right">用时长度（默认为0）</span></td>
+                </tr>
+                <tr>
+                    <td>transition-timing-function</td>
+                    <td>transition-timing-function: linear;<span class="fn-right">过渡效果（linear匀速、ease曲线，默认为ease）</span></td>
+                </tr>
+                <tr>
+                    <td>transition-delay</td>
+                    <td>transition-delay: 1s;<span class="fn-right">何时开始（默认为0）</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="04" class="anchor"></i>
+            <h4>@keyframes（关键帧）</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>@keyframes cssName{ } <b class="fn-right colorRed">-webkit-等前缀在keyframes前面添加</b></b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>from-to</td>
+                    <td>
+                        @keyframes cssName{</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;from {background: red;}</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;to {background: yellow;}</br>
+                        }
+                        <span class="fn-right">动画名称：cssName</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>0%-100%</td>
+                    <td>
+                        @keyframes cssName{</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;0%   {background: red;}</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;25%  {background: yellow;}</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;50%  {background: blue;}</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;100% {background: green;}</br>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="05" class="anchor"></i>
+            <h4>animation（动画）</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2">
+                        <b>
+                            name（动画名称）、duration（用时长度）、timing-function（过渡效果）、delay（开始时间）、
+                            iteration-count（播放次数）、direction（顺逆播放）、play-state（运行或暂停）
+                        </b>
+                    </th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>animation</td>
+                    <td>animation: cssName 2s linear 1s infinite alternate;<span class="fn-right">transform，用时2s，匀速，1s后开始</span></td>
+                </tr>
+                <tr>
+                    <td>animation-name</td>
+                    <td>animation-name: className;<span class="fn-right">动画名称：cssName（定义动画名称）</span></td>
+                </tr>
+                <tr>
+                    <td>animation-duration</td>
+                    <td>animation-duration: 2s;<span class="fn-right">用时长度（默认是 0）</span></td>
+                </tr>
+                <tr>
+                    <td>animation-timing-function</td>
+                    <td>animation-timing-function: linear;<span class="fn-right">过渡效果（linear匀速、ease曲线，默认为ease）</span></td>
+                </tr>
+                <tr>
+                    <td>animation-delay</td>
+                    <td>animation-delay: 1s;<span class="fn-right">何时开始（默认为0）</span></td>
+                </tr>
+                <tr>
+                    <td>animation-iteration-count</td>
+                    <td>animation-iteration-count: infinite;<span class="fn-right">播放次数（infinite永远，默认为1）</span></td>
+                </tr>
+                <tr>
+                    <td>animation-direction</td>
+                    <td>animation-direction: alternate;<span class="fn-right">顺逆播放（alternate反向，默认为normal）</span></td>
+                </tr>
+                <tr>
+                    <td>animation-play-state</td>
+                    <td>animation-play-state: running;<span class="fn-right">运行或暂停（paused暂停、running开始，默认为running）</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="06" class="anchor"></i>
+            <h4>css3属性</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>css3边框</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>border-radius</td>
+                    <td>border-radius:25px;<span class="fn-right">（边框圆角）</span></td>
+                </tr>
+                <tr>
+                    <td>box-shadow</td>
+                    <td>box-shadow: 10px 10px 5px #888888;<span class="fn-right">X轴、Y轴、模糊大小、颜色（边框阴影）</span></td>
+                </tr>
+                <tr>
+                    <td>border-image</td>
+                    <td>border-image:url(bg.jpg) 30 30 round;<span class="fn-right">背景、X轴、Y轴、重复性（边框背景）</span></td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>css3背景</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>background-size</td>
+                    <td>background-size:40% 100%;<span class="fn-right">（像素或百分比伸缩）</span></td>
+                </tr>
+                <tr>
+                    <td>background-origin</td>
+                    <td>background-origin:content-box;<span class="fn-right">content-box、padding-box、border-box（定位区域）</span></td>
+                </tr>
+                <tr>
+                    <td>background-clip</td>
+                    <td>background-clip:content-box;<span class="fn-right">content-box、padding-box、border-box（绘制区域）</span></td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>css3文本</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>text-shadow</td>
+                    <td>text-shadow: 3px 2px 1px #f00;<span class="fn-right">X轴、Y轴、模糊距离、颜色（文字阴影）</span></td>
+                </tr>
+                <tr>
+                    <td>word-wrap</td>
+                    <td>word-wrap:break-word;<span class="fn-right">对长单词进行拆分，并换行到下一行（英文换行）</span></td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>CSS3字体</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>@font-face</td>
+                    <td>
+                        @font-face{</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;font-family: myFirstFont;</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;src: url('Sansation_Light.ttf'),</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;url('Sansation_Light.eot'); /* IE9+ */</br>
+                        }</br></br>
+                        div{</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;font-family:myFirstFont;</br>
+                        }
+                        <span class="fn-right">定义字体的名称：myFirstFont</span></td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>css3多列</b><b class="fn-right colorRed">Internet Explorer 不支持 column-count 属性</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>column-count</td>
+                    <td>column-count:3;<span class="fn-right">（分隔的列数）</span></td>
+                </tr>
+                <tr>
+                    <td>column-gap</td>
+                    <td>column-gap:40px;<span class="fn-right">（列之间的间隔）</span></td>
+                </tr>
+                <tr>
+                    <td>column-rule</td>
+                    <td>column-rule:3px outset #f00;<span class="fn-right">（列之间的宽度、样式和颜色）</span></td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>css3用户界面</b><b class="fn-right colorRed">Internet Explorer 不支持 outline-offset 属性</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>声 明</b><b class="fn-right">描 述</b></td>
+                </tr>
+                <tr>
+                    <td>resize</td>
+                    <td>
+                        resize:both;</br>
+                        overflow:auto;
+                        <span class="fn-right">（调整元素尺寸，horizontal宽、vertical高、both、none，配合overflow使用）</span></td>
+                </tr>
+                <tr>
+                    <td>box-sizing</td>
+                    <td>box-sizing:border-box;<span class="fn-right">（以特定的方式定义匹配某个区域的特定元素）</span></td>
+                </tr>
+                <tr>
+                    <td>outline-offset</td>
+                    <td>
+                        div{</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;border:1px solid black;</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;outline:2px solid red;</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;outline-offset:15px;</br>
+                        }
+                        <span class="fn-right">在div外15px处绘制一个2px的红色实线轮廓（绘制轮廓）</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="foot"></div>
+</body>
+</html>

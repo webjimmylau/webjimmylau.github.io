@@ -1,0 +1,97 @@
+﻿.arrowDown{
+    position: absolute;
+    width: 12px;
+    height: 6px;
+    line-height: 1px;
+    text-align: center;
+    font-family: "consolas";
+    font-style: normal;
+    transition:top 0.3s,transform 0.3s;
+    -webkit-transition:top 0.3s,-webkit-transform 0.3s;
+    -moz-transition:top 0.3s,-moz-transform 0.3s;
+    overflow: hidden;
+}
+/*鼠标经过下拉*/
+.combobox{
+    position: relative;
+    float: left;
+    min-width:56px;
+    line-height: 30px;
+    padding: 0 26px 0 10px;
+    border: 1px solid #ddd;
+}
+.combobox a{
+    text-decoration: none;
+}
+.combobox a .arrowDown{
+     top: 14px;
+     right: 10px;
+ }
+.combobox:hover .arrowDown{
+    top: 12px;
+    transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+}
+.comboboxShow{
+    display:none;
+    position: absolute;
+    top: 30px;
+    right: -1px;
+    min-width: 92px;
+    background: #fff;
+    border:1px solid #ddd;
+    text-align: center;
+    z-index: 999;
+}
+.comboboxShow a{
+    display: block;
+    padding: 0 10px;
+    white-space:nowrap;
+}
+.comboboxShow a:hover{
+    background: #f8f8f8;
+}
+/*end 鼠标经过下拉*/
+
+/*鼠标点击下拉*/
+
+.clickbox{
+    position: relative;
+    float: left;
+    line-height: 34px;
+    border:1px solid #ddd;
+    white-space: nowrap;
+}
+.clickbox a{
+    display: block;
+    padding: 0 26px 0 10px;
+    text-decoration: none;
+}
+.clickbox a:hover{
+    color: #666;
+}
+.clickbox .arrowDown{
+    top: 16px;
+    right: 10px;
+}
+.clickboxShow{
+    display: none;
+    position: absolute;
+    top: 34px;
+    left: -1px;
+    width: 100%;
+    background: #fff;
+    border:1px solid #ddd;
+    text-align: center;
+    z-index: 999;
+}
+.clickboxShow a{
+    display: block;
+    padding: 0;
+}
+.clickboxShow a:hover{
+    color: #666;
+    background: #f8f8f8;
+}
+/*end 鼠标点击下拉*/

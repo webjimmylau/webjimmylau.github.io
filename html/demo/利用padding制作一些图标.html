@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用padding制作一些图标</title>
+    <style type="text/css">
+        .head{
+            font-size: 12px;
+            line-height: 1.5;
+            padding: 10px;
+            background: #eee;
+            margin: 10px 0;
+        }
+        .icon-line {
+            padding: 10px 4px 2px;
+            border-left: 1px solid #999;
+            margin-left: 8px;
+            font-size: 0;
+        }
+        .menu{
+            display: inline-block;
+            line-height: 0;
+            padding: 10px;
+            background: #ddd;
+        }
+        .icon-menu{
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            line-height: 2px;
+            padding: 4px 0;
+            border-top: 2px solid #666;
+            border-bottom: 2px solid #666;
+            background: #666;
+            background-clip: content-box;
+        }
+        .icon-round{
+            width: 12px;
+            height: 12px;
+            padding: 2px;
+            background: #999;
+            background-clip: content-box;
+            border: 2px solid #999;
+            margin: 10px 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<p>由于background-clip:content-box是css3属性，所以两图标在ie8及以下不支持，具体你查看效果：</p>
+<div class="head">登录<span class="icon-line"></span>注册</div>
+<div class="menu"><i class="icon-menu"></i></div>
+<div class="icon-round"></div>
+</body>
+</html>

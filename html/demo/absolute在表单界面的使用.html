@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>文本图标对齐与定位二三事</title>
+    <style>
+        body { margin: 0; font: 14px/1.4 "Microsoft YaHei"; background-color: #EDEFF0; }
+        a { color: #50B6E5; }
+        .constr { width: 1200px; margin-left: auto; margin-right: auto; }
+        .regist-head { height: 60px; line-height: 60px; padding-left: 30px; background-color: #be3948; color: #fff; font-size: 18px; }
+        .regist-hot{ position: absolute; margin-left: 5px; margin-top: 10px; line-height: 1em; padding: 2px 4px; color: #be3948; background: yellow; border-radius: 3px;}
+        .regist-body { min-height: 400px; padding: 100px 0; background-color: #fff; }
+        .regist-main { width: 600px; margin-left: auto; margin-right: auto; }
+        .regist-group { margin-top: 20px; overflow: hidden; }
+        .regist-label { width: 70px; padding-top: 10px; float: left; }
+        .regist-cell { display: table-cell; *display: inline-block; }
+        .regist-input { height: 18px; line-height: 18px; width: 260px; padding: 10px 5px; margin: 0 10px 0 0; border: 1px solid #d0d6d9; vertical-align: top; }
+        .regist-code-input { width: 130px; }
+        .regist-btn { display: inline-block; width: 160px; line-height: 40px; background-color: #39b94e; color: #fff; text-align: center; text-decoration: none; }
+        .regist-btn:hover { background-color: #33a646; }
+        .icon-warn { display: inline-block; width: 20px; height: 21px; background: url(http://img.mukewang.com/5453084a00016ae300120012.gif) no-repeat center; }
+
+        .regist-star { position: absolute; margin-left: -1em; font-family: simsun; color: #f30; }
+        .regist-remark { position: absolute; line-height: 21px; padding-top: 9px; color: #666; }
+        .regist-warn { padding-left: 20px; color: #be3948; }
+        .regist-warn > .icon-warn { position: absolute; margin-left: -20px; }
+
+        .return-box{ text-align: right; }
+        .return-top{ position: fixed; display: inline; margin-left: 20px; bottom: 20px; padding: 10px; color: #fff; background: #be3948; }
+    </style>
+</head>
+
+<body>
+<div class="constr">
+    <p>星号，提示图标，提示信息，返回顶部的妙用，请看效果：</p>
+    <div class="regist-head">注册<span class="regist-hot" title="1、图片图标来覆盖，无依赖，真不赖；如：top,hot">hot</span></div>
+    <div class="regist-body">
+        <div class="regist-main">
+            <div class="regist-group">
+                <label class="regist-label"><span class="regist-star" title="4、星号时有是没有，破坏队形不用愁；如：注册页的*必填项">*</span>登录邮箱</label>
+                <div class="regist-cell">
+                    <input type="email" class="regist-input"><span class="regist-remark regist-warn" title="5、图文对齐兼容差，绝对定位来开挂；如：注册页输入框的错误提示">
+                    	<i class="icon-warn"></i>邮箱格式不准确（演示）
+                    </span>
+                </div>
+            </div>
+            <div class="regist-group">
+                <label class="regist-label"><span class="regist-star">*</span>登录密码</label>
+                <div class="regist-cell">
+                    <input type="password" class="regist-input"><span class="regist-remark" title="5、图文对齐兼容差，绝对定位来开挂；如：注册页输入框的错误提示">
+                    	请输入6-16位密码，区分大小写，不能使用空格
+                    </span>
+                </div>
+            </div>
+            <div class="regist-group">
+                <label class="regist-label"><span class="regist-star">*</span>用户昵称</label>
+                <div class="regist-cell">
+                    <input type="password" class="regist-input">
+                </div>
+            </div>
+            <div class="regist-group">
+                <label class="regist-label">手机号码</label>
+                <div class="regist-cell">
+                    <input type="tel" class="regist-input">
+                </div>
+            </div>
+            <div class="regist-group">
+                <label class="regist-label"><span class="regist-star">*</span>验 证 码</label>
+                <div class="regist-cell">
+                    <input class="regist-input regist-code-input"><img src="http://img.mukewang.com/545308540001678401500040.jpg">
+                </div>
+            </div>
+            <div class="regist-group">
+                <label class="regist-label">&nbsp;</label>
+                <div class="regist-cell">
+                    <input type="checkbox" checked><label>我已阅读并同意<a href="##">慕课协议</a>。</label>
+                    <p>
+                        <a href="javascript:" class="regist-btn">立即注册</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="return-box">
+        &nbsp;<div class="return-top" title="3、对齐居中或边缘，定位实现有脸面；如：返回顶部，加nbsp，然后居右">top</div>
+    </div>
+</div>
+</body>
+</html>

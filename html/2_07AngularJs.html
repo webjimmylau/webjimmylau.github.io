@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/scrollTopControl.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="subMenu">
+    <div class="wrap">
+        <div class="subTitle">AngularJS专区：</div>
+        <ul>
+            <li><a href="#01" class="click">AngularJS简介</a></li>
+            <li><a href="#02">AngularJS用法</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container fn-clear">
+    <div class="wrap">
+        <div class="contBox">
+            <i id="01" class="anchor"></i>
+            <h4>AngularJS简介</h4>
+            <p>AngularJS是为了克服HTML在构建应用上的不足而设计的。</p>
+            <p>1、AngularJS 把应用程序数据绑定到 HTML 元素；</p>
+            <p>2、AngularJS 可以克隆和重复 HTML 元素；</p>
+            <p>3、AngularJS 可以隐藏和显示 HTML 元素；</p>
+            <p>4、AngularJS 可以在 HTML 元素"背后"添加代码；</p>
+            <p>5、AngularJS 支持输入验证；</p>
+        </div>
+        <div class="contBox">
+            <i id="02" class="anchor"></i>
+            <h4>AngularJS用法</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 指令</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 指令</td>
+                    <td>ng-app、ng-model、ng-init</td>
+                </tr>
+                <tr>
+                    <td>ng-app</td>
+                    <td>指令定义一个 AngularJS 应用程序</td>
+                </tr>
+                <tr>
+                    <td>data-ng-app</td>
+                    <td>AngularJS 属性以 ng- 开头，但是您可以使用 data-ng- 来让网页对 HTML5 有效</td>
+                </tr>
+                <tr>
+                    <td>ng-model="yourName"</td>
+                    <td>指令把元素值（比如输入域的值）绑定到应用程序</td>
+                </tr>
+                <tr>
+                    <td>ng-init="yourName='Lucy'"</td>
+                    <td>指令初始化 AngularJS 应用程序变量</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 表达式</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 表达式</td>
+                    <td>{{ expression }}、ng-bind</td>
+                </tr>
+                <tr>
+                    <td>Hello {{yourname ||'World'}}</td>
+                    <td>使用双大括号标记{{}}的内容是问候语中绑定的表达式，这个表达式是一个简单的字符串‘World’</td>
+                </tr>
+                <tr>
+                    <td>ng-bind="yourName"</td>
+                    <td>指令把应用程序数据绑定到 HTML 视图</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>模块和控制器的应用</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>模块和控制器的应用</td>
+                    <td>module、controller</td>
+                </tr>
+                <tr>
+                    <td>module</td>
+                    <td>定义了 AngularJS 应用</td>
+                </tr>
+                <tr>
+                    <td>controller</td>
+                    <td>定义了 AngularJS 控制器</td>
+                </tr>
+                <tr>
+                    <td>ng-app指令</td>
+                    <td>定义了应用</td>
+                </tr>
+                <tr>
+                    <td>ng-controller指令</td>
+                    <td>定义了控制器</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 过滤器</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 过滤器</td>
+                    <td>过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中</td>
+                </tr>
+                <tr>
+                    <td>currency</td>
+                    <td>格式化数字为货币格式</td>
+                </tr>
+                <tr>
+                    <td>filter</td>
+                    <td>从数组项中选择一个子集</td>
+                </tr>
+                <tr>
+                    <td>lowercase</td>
+                    <td>格式化字符串为小写</td>
+                </tr>
+                <tr>
+                    <td>orderBy</td>
+                    <td>根据某个表达式排列数组</td>
+                </tr>
+                <tr>
+                    <td>uppercase</td>
+                    <td>格式化字符串为大写</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>读取 JSON 文件</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>读取 JSON 文件</td>
+                    <td>$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据</td>
+                </tr>
+                <tr>
+                    <td>$http.get(url)</td>
+                    <td>用于读取服务器数据的函数</td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>静态 JSON 数据 http://www.runoob.com/try/angularjs/data/Customers_JSON.php</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 表格</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 表格</td>
+                    <td>排序显示，可以使用 orderBy 过滤器 ng-repeat="x in names | orderBy : 'Country'"</td>
+                </tr>
+                <tr>
+                    <td>uppercase</td>
+                    <td>使用 uppercase 过滤器转换为大写 {{ x.Country | uppercase }}</td>
+                </tr>
+                <tr>
+                    <td>$index</td>
+                    <td>表格显示序号可以在中添加 $index {{ $index + 1 }}</td>
+                </tr>
+                <tr>
+                    <td>$even 和 $odd</td>
+                    <td>使用 $even 和 $odd ng-if="$odd" ng-if="$even"</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS HTML DOM</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS HTML DOM</td>
+                    <td>AngularJS 为 HTML DOM 元素的属性提供了绑定应用数据的指令</td>
+                </tr>
+                <tr>
+                    <td>ng-disabled</td>
+                    <td>指令直接绑定应用程序数据到 HTML 的 disabled 属性</td>
+                </tr>
+                <tr>
+                    <td>ng-show</td>
+                    <td>指令隐藏或显示一个 HTML 元素</td>
+                </tr>
+                <tr>
+                    <td>ng-hide</td>
+                    <td>指令用于隐藏或显示 HTML 元素</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 事件</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 事件</td>
+                    <td>AngularJS 有自己的 HTML 事件指令</td>
+                </tr>
+                <tr>
+                    <td>ng-click</td>
+                    <td>指令定义了 AngularJS 点击事件</td>
+                </tr>
+                <tr>
+                    <td>ng-show</td>
+                    <td>指令隐藏或显示一个 HTML 元素</td>
+                </tr>
+                <tr>
+                    <td>ng-hide</td>
+                    <td>指令用于隐藏或显示 HTML 元素</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 表单</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 表单</td>
+                    <td>AngularJS 表单是输入控件的集合</td>
+                </tr>
+                <tr>
+                    <td>HTML 控件</td>
+                    <td>input 元素、select 元素、button 元素、textarea 元素</td>
+                </tr>
+                <tr>
+                    <td>novalidate</td>
+                    <td>属性是在 HTML5 中新增的。禁用了使用浏览器的默认验证</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 全局 API</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>AngularJS 全局 API</td>
+                    <td>用于执行常见任务的 JavaScript 函数集合，如：比较对象、迭代对象、转换对象</td>
+                </tr>
+                <tr>
+                    <td>angular.lowercase()</td>
+                    <td>转换字符串为小写</td>
+                </tr>
+                <tr>
+                    <td>angular.uppercase()</td>
+                    <td>转换字符串为大写</td>
+                </tr>
+                <tr>
+                    <td>angular.isString()</td>
+                    <td>判断给定的对象是否为字符串，如果是返回 true</td>
+                </tr>
+                <tr>
+                    <td>angular.isNumber()</td>
+                    <td>判断给定的对象是否为数字，如果是返回 true</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 指令解析</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>html ng-app</td>
+                    <td>为 html 元素定义一个应用(未命名)</td>
+                </tr>
+                <tr>
+                    <td>body ng-controller</td>
+                    <td>为 body 元素定义一个控制器</td>
+                </tr>
+                <tr>
+                    <td>tr ng-repeat</td>
+                    <td>循环 users 对象数组，每个 user 对象放在 tr 元素中</td>
+                </tr>
+                <tr>
+                    <td>button ng-click</td>
+                    <td>当点击 button 元素时调用函数 editUser()</td>
+                </tr>
+                <tr>
+                    <td>h3 ng-show</td>
+                    <td>如果 edit = true 显示 h3 元素</td>
+                </tr>
+                <tr>
+                    <td>h3 ng-hide</td>
+                    <td>如果 edit = true 隐藏 h3 元素</td>
+                </tr>
+                <tr>
+                    <td>input ng-model</td>
+                    <td>为应用程序绑定 input 元素</td>
+                </tr>
+                <tr>
+                    <td>button ng-disabled</td>
+                    <td>如果发生错误或者 ncomplete = true 禁用 button 元素</td>
+                </tr>
+                <tr>
+                    <td>div ng-include="'form.html'"</td>
+                    <td>使用 ng-include 指令来包含 HTML 内容</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>AngularJS 指令解析</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>$scope.fName</td>
+                    <td>模型变量 (用户名)</td>
+                </tr>
+                <tr>
+                    <td>$scope.lName</td>
+                    <td>模型变量 (用户姓)</td>
+                </tr>
+                <tr>
+                    <td>$scope.passw1</td>
+                    <td>模型变量 (用户密码 1)</td>
+                </tr>
+                <tr>
+                    <td>$scope.passw2</td>
+                    <td>模型变量 (用户密码 2)</td>
+                </tr>
+                <tr>
+                    <td>$scope.users</td>
+                    <td>模型变量 (用户的数组)</td>
+                </tr>
+                <tr>
+                    <td>$scope.edit</td>
+                    <td>当用户点击创建用户时设置为true</td>
+                </tr>
+                <tr>
+                    <td>$scope.error</td>
+                    <td>如果 passw1 不等于 passw2 设置为 true</td>
+                </tr>
+                <tr>
+                    <td>$scope.incomplete</td>
+                    <td>如果每个字段都为空(length = 0)设置为 true</td>
+                </tr>
+                <tr>
+                    <td>$scope.editUser	</td>
+                    <td>设置模型变量</td>
+                </tr>
+                <tr>
+                    <td>$scope.watch</td>
+                    <td>监控模型变量</td>
+                </tr>
+                <tr>
+                    <td>$scope.test</td>
+                    <td>验证模型变量的错误和完整性</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="foot"></div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/scrollTopControl.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="subMenu">
+    <div class="wrap">
+        <div class="subTitle">细节问题：</div>
+        <ul>
+            <li><a href="#01" class="click">细节</a></li>
+            <li><a href="#02">jquery交互</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container fn-clear">
+    <div class="wrap">
+        <div class="contBox">
+            <i id="01" class="anchor"></i>
+            <h4>细节</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>列表</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>属 性</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>clear 清除浮动 1</td>
+                    <td>
+                        .clear:after{ content:""; display:table; clear:both; } .clear{ *zoom:1; }
+                    </td>
+                </tr>
+                <tr>
+                    <td>clear 清除浮动 2</td>
+                    <td>
+                        .clear:after{ content:""; display:block; height:0; overflow:hidden; clear:both; } .clear{ *zoom:1; }
+                    </td>
+                </tr>
+                <tr>
+                    <td>height 等高布局</td>
+                    <td>
+                        .wrap{ overflow: hidden; }<br/>
+                        .sideLeft,.sideRight{ padding-bottom: 32767px; margin-bottom: -32767px; }
+                    </td>
+                </tr>
+                <tr>
+                    <td>longWords 连续英文单词断行</td>
+                    <td>word-wrap:break-word;</td>
+                </tr>
+                <tr>
+                    <td>overflow 超出省略号</td>
+                    <td>
+                        a{width:200px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+                    </td>
+                </tr>
+                <tr>
+                    <td>a 链接触发顺序</td>
+                    <td>link/visited/hover/active(L-V-H-A)</td>
+                </tr>
+                <tr>
+                    <td>a 链接打开新窗口</td>
+                    <td>target="_blank"</td>
+                </tr>
+                <tr>
+                    <td>a 连接为空解决方法</td>
+                    <td>javascript:void(0)</td>
+                </tr>
+                <tr>
+                    <td>a 链接或img图片去除虚线</td>
+                    <td>
+                        批量：a,img{outline:none; blr:expression(this.onFocus=this.blur());}</br>
+                        单个：onFosuc=this.blur()
+                    </td>
+                </tr>
+                <tr>
+                    <td>input radio 复选框去除虚线</td>
+                    <td>hidefocus=true</td>
+                </tr>
+                <tr>
+                    <td>input text 输入框去除样式</td>
+                    <td>outline-style:none</td>
+                </tr>
+                <tr>
+                    <td>input text 输入框提示</td>
+                    <td>placeholder="..."</td>
+                </tr>
+                <tr>
+                    <td>table 表格边框折叠</td>
+                    <td>border-collapse: collapse;</td>
+                </tr>
+                <tr>
+                    <td>padding 填充和宽度包含（css3属性）</td>
+                    <td>
+                        box-sizing:content-box; /*默认 不包含在宽度*/<br/>
+                        box-sizing:border-box; /*包含在宽度*/
+                    </td>
+                </tr>
+                <tr>
+                    <td>padding 填充和背景包含（css3属性）</td>
+                    <td>
+                        background-clip: border-box; /*默认 包含在背景*/<br/>
+                        background-clip: content-box; /*不包含在背景*/
+                    </td>
+                </tr>
+                <tr>
+                    <td>div 层显示在flash之上</td>
+                    <td>
+                        给FLASH设置透明&lt;param name="wmode" value="transparent" /&gt;
+                        </br>
+                        或者&lt;param name="wmode" value="opaque" /&gt;
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="02" class="anchor"></i>
+            <h4>jquery交互</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>列表</b></th>
+                </tr>
+                <tr>
+                    <td width="30%"><b>问 题</b></td>
+                    <td><b>代 码</b></td>
+                </tr>
+                <tr>
+                    <td>延迟执行</td>
+                    <td>
+                        $(function(){</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function(){</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(".box").hide();</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;},3000);</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;//3000毫秒后执行box隐藏</br>
+                        })
+                    </td>
+                </tr>
+                <tr>
+                    <td>判断滚动到底部</td>
+                    <td>
+                        $(window).scroll(function(){</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var scrollTop = $(this).scrollTop();</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var scrollHeight = $(document).height();</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var windowHeight = $(this).height();</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;if(scrollTop + windowHeight == scrollHeight){</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("you are in the bottom");</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;};</br>
+                        });
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="foot"></div>
+</body>
+</html>

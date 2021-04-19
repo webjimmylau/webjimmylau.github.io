@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/scrollTopControl.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="subMenu">
+    <div class="wrap">
+        <div class="subTitle">javascript专区：</div>
+        <ul>
+            <li><a href="#01" class="click">1.概述</a></li>
+            <li><a href="#02">2.词法结构</a></li>
+            <li><a href="#03">3.类型、值和变量</a></li>
+            <li><a href="#04">4.表达式和运算符</a></li>
+            <li><a href="#05">5.语句</a></li>
+            <li><a href="#06">6.对象</a></li>
+            <li><a href="#07">7.数组</a></li>
+            <li><a href="#08">8.函数</a></li>
+            <li><a href="#09">9.类和模块</a></li>
+            <li><a href="#10">10.正则表达式</a></li>
+            <li><a href="#11">11.子集和扩展</a></li>
+            <li><a href="#12">12.服务器端</a></li>
+        </ul>
+        <div class="subTitle">javascript图解：</div>
+        <ul>
+            <li><a href="#001">1.变量</a></li>
+            <li><a href="#002">2.运算符</a></li>
+            <li><a href="#003">3.数组</a></li>
+            <li><a href="#004">4.流程语句</a></li>
+            <li><a href="#005">5.字符串函数</a></li>
+            <li><a href="#006">6.函数基础</a></li>
+            <li><a href="#007">7.基础dom操作</a></li>
+            <li><a href="#008">8.正则表达式</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container container-javascript fn-clear">
+    <div class="wrap">
+        <div class="contBox">
+            <i id="01" class="anchor"></i>
+            <h4>1.概述</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>数据类型</b><span class="fn-right">P8</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>x = 1;</td>
+                    <td>数字</td>
+                </tr>
+                <tr>
+                    <td>x = 0.01</td>
+                    <td>整数和实数共用一种数据类型</td>
+                </tr>
+                <tr>
+                    <td>x = "Hello World"</td>
+                    <td>由双引号内的文本构成的字符串</td>
+                </tr>
+                <tr>
+                    <td>x = 'Javascript'</td>
+                    <td>由单引号内的文本构成的字符串</td>
+                </tr>
+                <tr>
+                    <td>x = true</td>
+                    <td>布尔值</td>
+                </tr>
+                <tr>
+                    <td>x = false</td>
+                    <td>另一个布尔值</td>
+                </tr>
+                <tr>
+                    <td>x = null</td>
+                    <td>null是一个特殊的值，意思是“空”</td>
+                </tr>
+                <tr>
+                    <td>x = undefined</td>
+                    <td>undefined和null非常类似</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>对象{ }和数组[ ]</b><span class="fn-right">P9</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>对象{ }</td>
+                    <td>var o = {x: 1, y: 2}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        o.x; // 通过"."访问对象属性<br/>
+                        o["x"]; // 通过"[]"访问对象属性<br/>
+                        o.z = "Flanagan"; // 创建新属性
+                    </td>
+                </tr>
+                <tr>
+                    <td>数组[ ]</td>
+                    <td>var p = [1, 2, 4, 6, 7]</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        p[0] // 数组中的第一个元素（索引的0）<br/>
+                        p.length // 数组中的元素个数<br/>
+                        p[1] = 100; // 改变第二个元素的值
+                    </td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>其它要点</b><span class="fn-right">P11-P14</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>平方根Math.sqrt( )</td>
+                    <td>
+                        var c = Mart.sqrt(a*a + b*b)
+                        <span class="fn-right">用来计算平方根</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>添加元素push( )</td>
+                    <td>
+                        var a = [];<br/>
+                        a.push(1, 2, 4);
+                        <span class="fn-right">向数组添加元素</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>反序reverse( )</td>
+                    <td>
+                        a.reverse();
+                        <span class="fn-right">将素组元素的次序反转</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>原型prototype</td>
+                    <td>
+                        Point.prototype.r = 100;
+                        <span class="fn-right">向Point对象添加r属性</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>创建标签createElement</td>
+                    <td>
+                        var pre = document.createElement("pre");
+                        <span class="fn-right">创建&lt;pre &gt;标签</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>包装节点createTextNode</td>
+                    <td>
+                        var text = document.createTextNode(msg);
+                        <span class="fn-right">将msg包装在一个文本节点中</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>样式style</td>
+                    <td>
+                        e.style.display = "none";
+                        <span class="fn-right">隐藏e</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>类className</td>
+                    <td>
+                        e.className = "price";
+                        <span class="fn-right">给e添加price样式</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="02" class="anchor"></i>
+            <h4>2.词法结构</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>Javascript词法结构</b><span class="fn-right">P25-P30</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>字符集</td>
+                    <td>
+                        Javascript程序是用Unicode字符集编写的
+                    </td>
+                </tr>
+                <tr>
+                    <td>区分大小写</td>
+                    <td>
+                        Javascript是区分大小写的语言。也就是说，关键字、变量、函数名和所有的标识符都必须采取一致的大小写形式。<br/>
+                        比如"while"，不能写成"While"或者"WHILE"，同样，"online"、"Online"、"OnLine"、"ONLINE"是4个不同的变量
+                    </td>
+                </tr>
+                <tr>
+                    <td>空格、换行符和格式控制符</td>
+                    <td>Javascript会忽略程序中标识之间的空格，大多数情况下，也会忽略换行符</td>
+                </tr>
+                <tr>
+                    <td>Unicode转义字符</td>
+                    <td>Javascript定义了一种特殊序列，使用6个ASCH字符来代表任意16位Unicode内码</td>
+                </tr>
+                <tr>
+                    <td>标准化</td>
+                    <td>Unicode允许使用多种方法对同一个字符进行编码</td>
+                </tr>
+                <tr>
+                    <td>注释</td>
+                    <td>Javascript支持两种格式的注释</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        // 这里是单行注释<br/>
+
+                        /* 这里是一段注释 */ // 这里是另一段注释<br/>
+
+                        /*<br/>
+                        * 这又是一段注释<br/>
+                        * 这里的注释可以连写多行<br/>
+                        */
+                    </td>
+                </tr>
+                <tr>
+                    <td>直接量</td>
+                    <td>程序中直接使用的数据值</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        12 // 数字<br/>
+                        1.2 // 小数<br/>
+                        "Hello World" // 字符串文本<br/>
+                        'Hi' // 另一个字符串<br/>
+                        true // 布尔值<br/>
+                        false // 另一个布尔值<br/>
+                        /javascript/gi // 正则表达式直接量（用做模式匹配）<br/>
+                        null // 空
+                    </td>
+                </tr>
+                <tr>
+                    <td>标识符</td>
+                    <td>标识符就是一个名字</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        i<br/>
+                        my_variable_name<br/>
+                        v13、_dummy<br/>
+                        $str
+                    </td>
+                </tr>
+                <tr>
+                    <td>保留字</td>
+                    <td>Javascript把一些标识符拿出来用做自己的关键字。因此，就不能再在程序中把这些关键字用做标识符了</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>break、delete、function、return、typeof、case、do、if、switch、var、catch、else、in、this等等</td>
+                </tr>
+                <tr>
+                    <td>可选的分号</td>
+                    <td>和其他许多编程语言一样，Javascript使用分号";"将语句分隔开，有时可以省略，有时却不能</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        a = 3;<br/>
+                        b = 4; // 可省略第一个分号<br/>
+                        a = 3; b = 4; // 不可以省略第一个分号
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="03" class="anchor"></i>
+            <h4>3.类型、值和变量</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>算数运算</b><span class="fn-right">P35-P36</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>+、-、*、/、%</td>
+                    <td>加、减、乘、除、求余</td>
+                </tr>
+                <tr>
+                    <td>Math.pow(2,53)</td>
+                    <td>2的53次幂</td>
+                </tr>
+                <tr>
+                    <td>Math.round(.6)</td>
+                    <td>四舍五入</td>
+                </tr>
+                <tr>
+                    <td>Math.ceil(.6)</td>
+                    <td>向上求整</td>
+                </tr>
+                <tr>
+                    <td>Math.floor(.6)</td>
+                    <td>向下求整</td>
+                </tr>
+                <tr>
+                    <td>Math.abs(-1)</td>
+                    <td>求绝对值</td>
+                </tr>
+                <tr>
+                    <td>Math.max(x, y, z)</td>
+                    <td>返回最大值</td>
+                </tr>
+                <tr>
+                    <td>Math.min(x, y, z)</td>
+                    <td>返回最小值</td>
+                </tr>
+                <tr>
+                    <td>Math.random()</td>
+                    <td>生成一个大于0小于1.0的伪随机数</td>
+                </tr>
+                <tr>
+                    <td>Math.PI</td>
+                    <td>π:圆周率</td>
+                </tr>
+                <tr>
+                    <td>Math.E</td>
+                    <td>e:自然对数的底数</td>
+                </tr>
+                <tr>
+                    <td>Math.sqrt(x)</td>
+                    <td>平方根</td>
+                </tr>
+                <tr>
+                    <td>Math.pow(x, 1/3)</td>
+                    <td>立方根</td>
+                </tr>
+                <tr>
+                    <td>Math.sin(0)</td>
+                    <td>三角函数：还有Math.cos, Math.atan等</td>
+                </tr>
+                <tr>
+                    <td>Math.log(x)</td>
+                    <td>自然对数</td>
+                </tr>
+                <tr>
+                    <td>Math.log(y)/Math.LN10</td>
+                    <td>以x为底y的对数</td>
+                </tr>
+                <tr>
+                    <td>Math.exp(x)</td>
+                    <td>e的x次幂</td>
+                </tr>
+                <tr>
+                    <td>溢出</td>
+                    <td>overflow</td>
+                </tr>
+                <tr>
+                    <td>下溢</td>
+                    <td>underflow</td>
+                </tr>
+                <tr>
+                    <td>无穷大</td>
+                    <td>Infinity</td>
+                </tr>
+                <tr>
+                    <td>负无穷大</td>
+                    <td>-Infinity</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>日期和时间</b><span class="fn-right">P38</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>
+                        var date = new Date();<br/>
+                        document.write(date);
+                    </td>
+                    <td>
+                        获取当前日期
+                    </td>
+                </tr>
+                <tr>
+                    <td>date.getFullYear()</td>
+                    <td>年</td>
+                </tr>
+                <tr>
+                    <td>date.getMonth()</td>
+                    <td>月</td>
+                </tr>
+                <tr>
+                    <td>date.getDate()</td>
+                    <td>日</td>
+                </tr>
+                <tr>
+                    <td>date.getHours()</td>
+                    <td>时</td>
+                </tr>
+                <tr>
+                    <td>date.getMinutes()</td>
+                    <td>分</td>
+                </tr>
+                <tr>
+                    <td>date.getSeconds()</td>
+                    <td>秒</td>
+                </tr>
+                <tr>
+                    <td>date.getDay()</td>
+                    <td>星期</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>文本</b><span class="fn-right">P39</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>字符串直接量</td>
+                    <td>由单引号' '或双引号" "括起来的字符序列</td>
+                </tr>
+                <tr>
+                    <td>转义字符</td>
+                    <td>反斜线（\）后加一个字符，就不再表示它们的字面含义了。比如\n表示一个换行符</td>
+                </tr>
+                <tr>
+                    <td>RegExp()匹配模式</td>
+                    <td>Javascript定义了RegExp()构造函数，用来创建表示文本匹配模式的对象，这些模式称为正则表达式</td>
+                </tr>
+                <tr>
+                    <td>字符串的使用</td>
+                    <td>Javascript的内置功能之一就是字符串链接</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        var s = "Hello, World"
+                        <span class="fn-right">定义一个字符串</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.charAt(0)
+                        <span class="fn-right">第一个字符</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.charAt(s.length-1)
+                        <span class="fn-right">最后一个字符</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.substring(1, 4)
+                        <span class="fn-right">第2~4个字符</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.slice(1, 4)
+                        <span class="fn-right">第2~4个字符</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.slice(-3)
+                        <span class="fn-right">最后三个字符</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.indexOf("l")
+                        <span class="fn-right">2:字符"l"首次出现的位置</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.lastIndexOf("l")
+                        <span class="fn-right">10:字符"l"最后一次出现的位置</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.indexOf("l", 3)
+                        <span class="fn-right">3:在位置3及以后首次出现字符"l"的位置</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.split(", ")
+                        <span class="fn-right">["Helllo", "World"] 分割成子串</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.replace("H", "h")
+                        <span class="fn-right">"helllo, World":全文字符替换</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        s.toUpperCase()
+                        <span class="fn-right">"HELLO, WORLD":大写</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>值和类型</b><span class="fn-right">P43</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>布尔值</td>
+                    <td>true、false</td>
+                </tr>
+                <tr>
+                    <td>空值</td>
+                    <td>null、undefined</td>
+                </tr>
+                <tr>
+                    <td>全局对象</td>
+                    <td>全局对象的属性是全局定义的符号，Javascript程序可以直接使用</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        全局属性，比如undefined、Infinity、NaN<br/>
+                        全局函数，比如isNaN()、parseInt()、eval()（见4.12节）<br/>
+                        构造函数，比如Date()、RegExp()、String()、Object()、Array()（见3.8.2节）<br/>
+                        全局对象，比如Math和JSON（见6.9节）
+                    </td>
+                </tr>
+                <tr>
+                    <td>包装对象</td>
+                    <td>存取字符串、数字或布尔值的属性时创建的临时对象，如：String()、Number()、Boolean()</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        var s = "test", n = 1, b = true;    // 一个字符串、数字和布尔值<br/>
+                        var S = new String(s);              // 一个字符串对象<br/>
+                        var N = new Number(n);              // 一个数值对象<br/>
+                        var B = new Boolean(b);             // 一个布尔对象
+                    </td>
+                </tr>
+                <tr>
+                    <td>原始值和对象的引用</td>
+                    <td>原始值是不可变的，但对象是可以修改的</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        var s = "hello";<br/>
+                        s.toUpperCase(); // HELLO<br/>
+                        s // 但s值没有变
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        var o = {x: 1};<br/>
+                        o.x = 2; // 对象o的属性x值改变<br/>
+                        o.y = 3; // 给对象o添加新属性y<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        var p = [1, 2, 3];<br/>
+                        p[0] = 20; // 更改数组p的一个元素<br/>
+                        p[3] = 40; // 数组p新增元素<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>类型转换</td>
+                    <td>
+                        转换和相等性，显示类型转换，四舍五入，十六进制，对象转换为原始值toString
+                        <span class="fn-right">P48-P53</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>变量</b><span class="fn-right">P55-P59</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>变量声明</td>
+                    <td>var</td>
+                </tr>
+                <tr>
+                    <td>变量作用域</td>
+                    <td>全局变量（var可有可无: x = 0）、局部变量（一定要var: var x = 1）</td>
+                </tr>
+                <tr>
+                    <td>函数作用域</td>
+                    <td>变量在声明它们的函数体以及这个函数体嵌套的任意函数体内都是有意义的</td>
+                </tr>
+                <tr>
+                    <td>声明提前</td>
+                    <td>变量在声明之前甚至已经可用</td>
+                </tr>
+                <tr>
+                    <td>作为属性的变量</td>
+                    <td>使用var声明一个变量时，无法通过delete运算符删除</td>
+                </tr>
+                <tr>
+                    <td>作用域链</td>
+                    <td>通过阅读包含变量定义在内的数行源码就能知道变量的作用域</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="04" class="anchor"></i>
+            <h4>表达式和运算符</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>表达式</b><span class="fn-right">P61-P64</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>原始表达式</td>
+                    <td>
+                        是表达式的最小单位，它不再包含其他表达式
+                        <span class="fn-right">包含常量、直接量、关键字、变量</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>初始化表达式</td>
+                    <td>对象初始化表达式{ }和数组初始化表达式[ ]</td>
+                </tr>
+                <tr>
+                    <td>属性访问表达式</td>
+                    <td>
+                        不管使用哪种形式的属性访问表达式，在"."和"["之前的表达式总是会首先计算。
+                        <span class="fn-right">如o.x、o["x"]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>调用表达式</td>
+                    <td>
+                        是一种调用（或者执行）函数或方法的语法表示
+                        <span class="fn-right">如：f(0)、Math.max(x, y, z)、a.sort()</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>对象创建表达式</td>
+                    <td>
+                        创建一个对象并调用一个函数（构造函数）初始化新对象的属性<br/>
+                        new Object(); new Point(2, 3); // 带参数<br/>
+                        new Object; new Date; // 不带参数<br/>
+                    </td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>运算符</b><span class="fn-right">P65-P90</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>Javascript运算符大全</td>
+                    <td>见（P66）</td>
+                </tr>
+                <tr>
+                    <td>运算符概述</td>
+                    <td>
+                        操作数的个数<br/>
+                        操作数类型和结果类型<br/>
+                        左值<br/>
+                        运算符的副作用<br/>
+                        运算符优先级<br/>
+                        运算符的结合性<br/>
+                        运算顺序<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>算术表达式</td>
+                    <td>
+                        二元加法运算符："+"<br/>
+                        一元算术运算符："+"、"-""++"、"--"<br/>
+                        位运算符：按位与"&"、按位或"|"、按位异或"^"、按位非"~"、左移"<<"、带符号右移">>"、无符号右移">>>"
+                    </td>
+                </tr>
+                <tr>
+                    <td>关系表达式</td>
+                    <td>用于测试两个值之间的关系（比如：“相等”，“小于”，或“是...的属性”）</td>
+                </tr>
+                <tr>
+                    <td>相等和不等运算符</td>
+                    <td>
+                        赋值"="、相等"=="、严格相等"==="<br/>
+                        不相等"!="、不严格相等"!=="<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>比较运算符</td>
+                    <td>小于"<"、大于">"、小于等于"<="、大于等于">="</td>
+                </tr>
+                <tr>
+                    <td>in运算符</td>
+                    <td>
+                        var point = {x: 1, y: 1};<br/>
+                        "x" in point; // true<br/>
+                        "z" in point; // false<br/>
+                        var data = [1, 2, 5];<br/>
+                        "0" in data; // true "0"为索引<br/>
+                        1 in data; // true 1转为字符串"1"<br/>
+                        3 in data; // false 没有索引为3的元素
+                    </td>
+                </tr>
+                <tr>
+                    <td>instanceof运算符</td>
+                    <td>
+                        如果左侧的对象是右侧类的实例，则表达式返回true，否则返回false<br/>
+                        var d = new Date();<br/>
+                        d instanceof Date; // true<br/>
+                        d instanceof Object; // true<br/>
+                        d instanceof Number; // false<br/>
+                        var a = [1, 2, 3];<br/>
+                        d instanceof Array; // true<br/>
+                        d instanceof Object; // true<br/>
+                        d instanceof RegExp; // false<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>逻辑表达式</td>
+                    <td>与"&&"、或"||"、非"!"</td>
+                </tr>
+                <tr>
+                    <td>赋值表达式</td>
+                    <td>赋值"="</td>
+                </tr>
+                <tr>
+                    <td>赋值表达式</td>
+                    <td>
+                        += // a += b 等价于 a = a + b <br/>
+                        -= // a -= b 等价于 a = a - b <br/>
+                        *= // a *= b 等价于 a = a * b <br/>
+                        /= // a /= b 等价于 a = a / b <br/>
+                        <<= // a <<= b 等价于 a = a << b <br/>
+                        >>= // a >>= b 等价于 a = a >> b <br/>
+                        >>>= // a >>>= b 等价于 a = a >>> b <br/>
+                        &= // a &= b 等价于 a = a & b <br/>
+                        |= // a |= b 等价于 a = a | b <br/>
+                        ^= // a ^= b 等价于 a = a ^ b <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>表达式计算</td>
+                    <td>eval() // 见（P84-P86）</td>
+                </tr>
+                <tr>
+                    <td>条件运算符</td>
+                    <td>
+                        三元运算符"?:"<br/>
+                        x > 0 ? x : -x; // 求x的绝对值
+                    </td>
+                </tr>
+                <tr>
+                    <td>typeof运算符</td>
+                    <td>
+                        返回值为表示操作数类型的一个字符串
+                        "undefined", "object", boolean"", "number", "string", "function"
+                    </td>
+                </tr>
+                <tr>
+                    <td>delete运算符</td>
+                    <td>用来删除对象或数组中的元素（不能删除通过var声明的变量）</td>
+                </tr>
+                <tr>
+                    <td>void运算符</td>
+                    <td>href = "javascript:void window.open(#);"</td>
+                </tr>
+                <tr>
+                    <td>逗号运算符</td>
+                    <td>i = 0, j = 1, k = 2; 等价于 i = 0; j = 0; k = 0;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="05" class="anchor"></i>
+            <h4>语句</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>语句大全</b><span class="fn-right">P92-P117</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>表达式语句</td>
+                    <td>
+                        表达式组成的语句。"="赋值语句是一类比较重要的表达式语句
+                    </td>
+                </tr>
+                <tr>
+                    <td>复合语句</td>
+                    <td>只需要花括号将多条语句联合在一起 {语句1, 语句2, 语句3}</td>
+                </tr>
+                <tr>
+                    <td>空语句</td>
+                    <td>如果有特殊的目的需要使用空语句，最好在代码中添加注释。如：for(...) /* empty */</td>
+                </tr>
+                <tr>
+                    <td>声明语句</td>
+                    <td>
+                        var和function都是声明语句<br/>
+                        var f = function(x){...} 等价于 function f(x){...}
+                    </td>
+                </tr>
+                <tr>
+                    <td>条件语句</td>
+                    <td>if/if...else/else...if语句和switch语句</td>
+                </tr>
+                <tr>
+                    <td>循环语句</td>
+                    <td>
+                        while/do...while语句和for/for...in语句
+                    </td>
+                </tr>
+                <tr>
+                    <td>跳转语句</td>
+                    <td>标签(identifier: statement)/语句break语句/continue语句/return语句/throw语句/try/catch/finally语句</td>
+                </tr>
+                <tr>
+                    <td>其它语句</td>
+                    <td>with语句/debugger语句/"use strict"语句</td>
+                </tr>
+                <tr>
+                    <td>Javascript语句小结</td>
+                    <td>见(P117)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="06" class="anchor"></i>
+            <h4>对象</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>对象和属性特性</b><span class="fn-right">P119</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>对象特性</td>
+                    <td>
+                        对象的原型(prototype)指向另外一个对象，本对象的属性继承自它的原型对象<br/>
+                        对象的类(class)是一个标识对象类型的字符串<br/>
+                        对象的扩展(extensible flag)标记指明了是否可以向该对象添加新属性
+                    </td>
+                </tr>
+                <tr>
+                    <td>属性特性</td>
+                    <td>
+                        可举(writable attribute)，表明是否可以设置改属性的值<br/>
+                        可枚举(enumerable attribute)，表明是否可以通过for/in循环返回该属性<br/>
+                        可配置(configurable attribute)，表明是否可以删除或修改该属性
+                    </td>
+                </tr>
+                <tr>
+                    <td>对象和属性区分</td>
+                    <td>
+                        内置对象(native object)是由ECMAScript规范定义的对象或类。例如数组、函数、日期、和正则表达式都是内置对象<br/>
+                        宿主对象(host object)是有Javascript解释器所嵌入的宿主环境(比如web浏览器)定义的<br/>
+                        自定义对象(user-defined object)是由运行中的Javascript代码创建的对象<br/>
+                        自有属性(own property)是直接在对象中定义的属性<br/>
+                        继承属性(inherited property)是在对象的原型对象中定义的属性
+                    </td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>对象</b><span class="fn-right">P120-P122</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>对象直接量</td>
+                    <td>
+                        对象直接量是有若干名称/值对组成的映射表，名/值对中间用冒号分隔，<br/>
+                        名/值对之间用逗号分隔，整个映射表用花括号括起来。如：var point = {x: 0, y: 0};
+                    </td>
+                </tr>
+                <tr>
+                    <td>通过new创建对象</td>
+                    <td>
+                        new运算符创建并初始化一个新对象，关键字new后跟随一个函数调用<br/>
+                        这里的函数称为构造函数，构造函数用以初始化一个新创建的对象。如：var o = new Object();
+                    </td>
+                </tr>
+                <tr>
+                    <td>原型prototype</td>
+                    <td>
+                        所有通过对象直接量创建的对象都具有同一个原型对象，并可以通过Object.prototype获得对原型对象<br/>
+                        的引用。通过new Object()创建的对象也继承自Object.prototype,同样，通过new Array()创建的<br/>
+                        对象的原型就是Array.prototype，通过new Date()创建的对象的原型就是Date.prototype
+                    </td>
+                </tr>
+                <tr>
+                    <td>Object.create()</td>
+                    <td>
+                        创建一个新对象，其中第一个参数是这个对象的原型，第二个参数是可选参数，用以对对象的属性进行进一步描述<br/>
+                        它只需要传入所需的原型对象即可。如：var o = Object.create({x: 0, y: 0})<br/>
+                        inherit()函数的其中一个用途就是防止库函数无意间（非恶意的）修改那些不受你控制的对象
+                    </td>
+                </tr>
+                <tr>
+                    <td>inherit()继承</td>
+                    <td>
+                        function inherit(proto){<br/>
+                        if(proto == null){<br/>
+                        &nbsp;&nbsp;throw TypeError();<br/>
+                        }<br/>
+                        if(Object.create){<br/>
+                        &nbsp;&nbsp;return Object.create(proto);<br/>
+                        }<br/>
+                        var t = typeof proto;<br/>
+                        if(t !== "object" && t !== "function"){<br/>
+                        &nbsp;&nbsp;throw TypeError();<br/>
+                        }<br/>
+                        function f(){}<br/>
+                        f.prototype = proto;<br/>
+                        return new f()<br/>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>inherit()用法示例</td>
+                    <td>
+                        var o = {};<br/>
+                        o.x = 1;<br/>
+                        var p = inherit(o);<br/>
+                        p.y = 2;<br/>
+                        var q = inherit(p);<br/>
+                        q.z = 3;<br/>
+                        q.x + q.y  // 3<br/>
+                        var s = q.z.toString();<br/>
+                        s  // "3"
+                    </td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>属性</b><span class="fn-right">P123-P143</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>属性的查询和设置</td>
+                    <td>
+                        作为关联数组的对象：( . )和( [ ] )运算符可以用来获取属性的值。如：o.x、o["x"]<br/>
+                        继承：inherit()通过给他传入指定原型对象来创建实例<br/>
+                        属性访问错误：查询一个不存在的属性并不会报错，返回undefined，但是，如果对象不存在，<br/>
+                        那么试图查询这个不存在的对象的属性就会报错,null和undefined值都没有属性
+                    </td>
+                </tr>
+                <tr>
+                    <td>删除属性delete</td>
+                    <td>delete运算符只能删除自有属性，不能删除继承属性</td>
+                </tr>
+                <tr>
+                    <td>检测属性</td>
+                    <td>
+                        判断某个属性是否存在于某个对象中。如：var o = {x: 1};<br/>
+                        //// in运算符：如果对象的自有属性或继承属性中包含这个属性则返回true，否则为false。<br/>
+                        如："x" in o; // true<br/>
+                        如："y" in o; // false<br/>
+                        如："toString" in o; // true<br/>
+                        //// !==运算符：判断一个属性是否是undefined<br/>
+                        如：o.x !== undefined; // true<br/>
+                        如：o.y !== undefined; // false<br/>
+                        如：o.toString !== undefined; // true<br/>
+                        //// hasOwnProperty()方法：检测给定的名字是否是对象的自有属性，是则true，对于继承则返回false<br/>
+                        如：o.hasWonProperty("x"); // true
+                        如：o.hasWonProperty("y"); // false<br/>
+                        如：o.hasWonProperty("toString"); // false<br/>
+                        //// propertyIsEnumerable()方法：只有检测到时自有属性切这个属性的可枚举性为true时它才返回true<br/>
+                        如：o.propertyIsEnumerable("x"); // true<br/>
+                        如：var o = inherit({y: 2}); o.propertyIsEnumerable("y"); // false<br/>
+                        如：Object.prototype.propertyIsEnumerable("toString"); // false<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>枚举属性for...in...</td>
+                    <td>在循环体中遍历对象中所有可枚举的属性</td>
+                </tr>
+                <tr>
+                    <td>枚举属性的对象工具函数</td>
+                    <td>延伸extend()，合并merge()，限定restrict()，减法subtract()，结合union()，交集intersection()</td>
+                </tr>
+                <tr>
+                    <td>属性getter和setter</td>
+                    <td>属性可以用一个或两个方法代替，这两个方法就是getter和setter</td>
+                </tr>
+                <tr>
+                    <td>属性的特性</td>
+                    <td>查询和设置这些属性的API</td>
+                </tr>
+                <tr>
+                    <td>对象的三个属性</td>
+                    <td>
+                        原型属性：对象的原型属性是用来继承属性的<br/>
+                        类属性：对象的类属性是一个字符串，用以表示对象的类型信息<br/>
+                        扩展属性：对象的可扩展性用以表示是否可以给对象添加新属性
+                    </td>
+                </tr>
+                <tr>
+                    <td>序列化对象</td>
+                    <td>指将对象的状态转换为字符串，可以将字符串还原为对象</td>
+                </tr>
+                <tr>
+                    <td>对象方法</td>
+                    <td>
+                        toString()方法：没有参数，它将返回一个表示调用这个方法的对象值的字符串<br/>
+                        toLocaleString()方法：返回一个表示这个对象的本地化字符串<br/>
+                        toJSON()：如果在待序列化的对象中存在这个方法，则调用它<br/>
+                        valueOf()：当Javascript需要将对象转换为某种原始值而非字符串的时候才会调用它
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="07" class="anchor"></i>
+            <h4>数组</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>数组</b><span class="fn-right">P144-P164</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>数组</td>
+                    <td>数组是值的有序集合。每个值叫做一个元素，而每个元素在数组中有一个位置，已数字表示，称为索引。var o = [ ];</td>
+                </tr>
+                <tr>
+                    <td>创建数组</td>
+                    <td>使用数组直接量是创建数组最简单的方法，在方括号中将数组元素用逗号隔开即可。var o = [1, 2, 3]</td>
+                </tr>
+                <tr>
+                    <td>数组元素的读和写</td>
+                    <td>使用[ ]操作符来访问数组中的一个元素。o[0]</td>
+                </tr>
+                <tr>
+                    <td>稀疏数组</td>
+                    <td>稀疏数组就是包含从0开始的不连续索引的数组。如果数组是稀疏的，length属性值大于元素的个数</td>
+                </tr>
+                <tr>
+                    <td>数组长度</td>
+                    <td>length属性值代表数组中元素的个数</td>
+                </tr>
+                <tr>
+                    <td>数组元素的添加和删除</td>
+                    <td>添加：push()，删除：delete</td>
+                </tr>
+                <tr>
+                    <td>数组元素的添加和删除</td>
+                    <td>添加：push()，删除：delete</td>
+                </tr>
+                <tr>
+                    <td>数组遍历</td>
+                    <td>for、for...in...、forEach()</td>
+                </tr>
+                <tr>
+                    <td>多维数组</td>
+                    <td>访问数组的数组中的元素，只要简单地使用两次[ ]操作符即可</td>
+                </tr>
+                <tr>
+                    <td>数组方法</td>
+                    <td>
+                        Array.join()方法将数组中所有元素都转化为字符串并连接在一起，返回最后胜出的字符串<br/>
+                        Array.reverse()方法将数组中的元素颠倒顺序，返回逆序的 数组（Array值改变）<br/>
+                        Array.sort()方法将数组中的元素 排序并返回排序后的数组（Array值改变）<br/>
+                        Array.concat()方法创建并返回一个新数组<br/>
+                        Array.slice()方法返回指定数组的一个片段或子数组<br/>
+                        Array.splice()方法是在数组中插入或删除元素的通用方法（Array值改变）<br/>
+                        Array.push()方法在数组的尾部添加一个或多个元素，并返回数组新的长度（Array值改变）<br/>
+                        Array.pop()方法则相反，它删除数组的最后一个元素，减小数组长度并返回它删除的值（Array值改变）<br/>
+                        Array.unshift()方法在数组的头部添加一个或多个元素（Array值改变）<br/>
+                        Array.shift()方法删除数组的第一个元素并将其返回（Array值改变）<br/>
+                        Array.toString()方法将每个元素转化为字符串<br/>
+                        Array.toLocaleString()方法是String()方法的本地化版本
+                    </td>
+                </tr>
+                <tr>
+                    <td>ECMAScript5的数组方法</td>
+                    <td>
+                        forEach()方法从头至尾遍历数组，为每个元素调用指定的函数<br/>
+                        map()方法将调用的数组的每个元素传递给指定的函数，并返回一个数组，它包含该函数的返回值<br/>
+                        filter()方法方法混会的数组元素是调用的数组的一个子集<br/>
+                        every()方法是数组中的所有元素调用判定函数都返回true，它才返回true<br/>
+                        some()方法是当数组中至少有一个元素调用判定函数返回true，它就返回true<br/>
+                        reduce()方法需要两个参数，第一个是执行化简操作的函数，第二个（可选）的参数是一个传递给函数的初始值<br/>
+                        reduceRight()方法和reduce()方法一样，只不过它是按照索引从右向左处理数组<br/>
+                        indexOf()方法搜索整个数组中具有给定值的元素，返回找到的第一个元素的索引或者如果没有找到就返回-1<br/>
+                        lastIndexOf()方法和indexOf()方法一样，只不过是反向搜索
+                    </td>
+                </tr>
+                <tr>
+                    <td>数组类型</td>
+                    <td>Array.isArray()判定数组类型。如Array.isArray([]) // true; Array.isArray({}) // false</td>
+                </tr>
+                <tr>
+                    <td>类数组对象</td>
+                    <td>字符串和函数有length属性，且0 < length < 2^32</td>
+                </tr>
+                <tr>
+                    <td>作为数组的字符串</td>
+                    <td>字符串是不可变值，故把它们当做数组看待时，它们是只读的</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="08" class="anchor"></i>
+            <h4>函数</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>函数</b><span class="fn-right">P165-P200</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>函数命名</td>
+                    <td>函数命名时要尽量选择描述性强而又简洁的函数名，可极大地改善代码的可续性</td>
+                </tr>
+                <tr>
+                    <td>嵌套函数</td>
+                    <td>函数可以嵌套在其他函数里，它们可以访问嵌套它们（或多重嵌套）的函数的函数和变量</td>
+                </tr>
+                <tr>
+                    <td>函数调用</td>
+                    <td>
+                        函数调用：使用调用表达式可以进行普通的函数调用也可以进行方法调用<br/>
+                        方法调用：如果想访问外部函数的this值，需要将this的值保存在一个变量里，通常使用变量self来保存this<br/>
+                        构造函数的调用：如果函数或者方法调用之前带有关键字new,它就构成构造函数的调用，凡是没有形参的构造函数调用都可以省略圆括号<br/>
+                        间接调用：call()和apple()可以用来间接的调用函数
+                    </td>
+                </tr>
+                <tr>
+                    <td>可选形参</td>
+                    <td>当调用函数的时候传入的形参比函数声明时指定的形参个数要少，剩下的形参都将设置为undefined值</td>
+                </tr>
+                <tr>
+                    <td>实参对象</td>
+                    <td>arguments并不是真正的数组，它是一个实参对象</td>
+                </tr>
+                <tr>
+                    <td>callee和caller属性</td>
+                    <td>
+                        除了数组元素，实参对象还定义了callee和caller属性。caller代指调用当前正在执行的函数的函数，<br/>
+                        callee属性在某些时候会非常有用，比如在匿名函数中通过callee来递归地调用自身
+                    </td>
+                </tr>
+                <tr>
+                    <td>将对象属性用做参数</td>
+                    <td>
+                        当一个函数包含超过三个形参时，对于程序员来说，要记住调用函数中实参的正确顺序实在让人头疼<br/>
+                        所以easyCopy({form: form_start, to: to_start, length})
+                    </td>
+                </tr>
+                <tr>
+                    <td>实参类型</td>
+                    <td>isArrayLike()</td>
+                </tr>
+                <tr>
+                    <td>作为值的函数</td>
+                    <td>
+                        function add(x, y){ return x + y}<br/>
+                        function subtract(x, y){ return x - y}<br/>
+                        function multiply(x, y){ return x * y}<br/>
+                        function divide(x, y){ return x / y}<br/>
+                        function operate(operator, operand1, operand2){ return operator(operand1, operand2); }
+                        <span class="fn-right">P179</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>作为命名空间的函数</td>
+                    <td>
+                        function myModule(){//模块代码} //用myModule()调用函数<br/>
+                        (function(){//模块代码}()) //立即调用函数
+                    </td>
+                </tr>
+                <tr>
+                    <td>闭包</td>
+                    <td>P182-P188</td>
+                </tr>
+                <tr>
+                    <td>函数属性、方法和构造函数</td>
+                    <td>P188-P200</td>
+                </tr>
+                <tr>
+                    <td>length属性</td>
+                    <td>在函数体里，arguments.length表示传入函数的实参的个数</td>
+                </tr>
+                <tr>
+                    <td>prototype属性</td>
+                    <td>原型对象，每个函数都包含不同的原型对象</td>
+                </tr>
+                <tr>
+                    <td>call()和apply()方法</td>
+                    <td>
+                        call和apply方法的用途是分别去借foo方法来调用，当参数明确时可用call，当参数不明确时可用apply结合arguments<br/>
+                        区别：从第二个参数起，call方法参数将以此传递给借用的方法作参数，<br/>
+                        而apply直接将这些参数放到一个数组中再传递，最后借用方法的参数列表是一样的<br/>
+                        foo.call(this, arg1, arg2, arg2) <br/>
+                        foo.apply(this, [arg1, arg2, arg3]) <br/>
+                        foo.apply(this, arguments) <br/>
+                        this.foo(arg1, arg2, arg3)
+                    </td>
+                </tr>
+                <tr>
+                    <td>bind()方法</td>
+                    <td>主要作用是将函数绑定至某个对象</td>
+                </tr>
+                <tr>
+                    <td>toString()方法</td>
+                    <td>返回一个字符串</td>
+                </tr>
+                <tr>
+                    <td>Function()构造函数</td>
+                    <td>
+                        下面两个表达式是等价的：<br/>
+                        var f = Function("x", "y", "return x * y");<br/>
+                        var f = function(x, y){return x * y}
+                    </td>
+                </tr>
+                <tr>
+                    <td>可调用的对象</td>
+                    <td>Window.alert()和Document.gteElementById()使用了 可调用的宿主对象而不是内置函数对象</td>
+                </tr>
+                <tr>
+                    <td>函数式编程</td>
+                    <td>javascript并非函数式编程语言，但可以在javascript中应用函数式编程技术</td>
+                </tr>
+                <tr>
+                    <td>使用函数处理数组</td>
+                    <td>
+                        map()表示传递给指定元素，reduce()表示注入<br/>
+                        var data = [1, 1, 3, 5, 5];<br/>
+                        var sum = function(x, y){return x + y;};<br/>
+                        var square = function(x, y){return x * y;};<br/>
+                        var mean = function reduce(data, sum) / data.length;<br/>
+                        var deviations = map(data, function(x){return x - mean;});<br/>
+                        var stddev = Math.sqrt(reduce(map(deviations, square), sum) / (data.length - 1));
+                    </td>
+                </tr>
+                <tr>
+                    <td>高阶函数</td>
+                    <td>操作函数的函数，它接收一个或多个函数作为参数，并返回一个新函数。</td>
+                </tr>
+                <tr>
+                    <td>不完全函数</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>记忆</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="09" class="anchor"></i>
+            <h4>类和模块</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>函数</b><span class="fn-right">P165-P200</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>constructor属性</td>
+                    <td>F.prototype.constructor == F</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        constructor属性的值是一个函数对象<br/>
+                        function F(){}<br/>
+                        var p = F.prototype;  // 这是F相关联的原型对象<br/>
+                        var c = p.constructor; // 这是与原型相关联的函数<br/>
+                        c === F;  // true : 对于任意函数 F.prototype.constructor == F<br/>
+                        var o = new F();<br/>
+                        o.constructor === F;  // true constructor属性代指这个类
+                    </td>
+                </tr>
+                <tr>
+                    <td>构造函数对象</td>
+                    <td>
+                        任何添加到这个构造函数对象中的属性都是类字段和类方法<br/>
+                        function Sports(){}<br/>
+                        Sports.prototype.type = "play basketball";  // 类字段<br/>
+                        Sports.prototype.say = function(){alert("I can play!");};  // 类方法
+                    </td>
+                </tr>
+                <tr>
+                    <td>原型对象</td>
+                    <td>原型对象（Sports）的属性（item）被类（Player）的所有实例（player1、player2）所继承(player1.item)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        function Sports(){<br/>
+                        &nbsp;&nbsp;this.item = "NBA";<br/>
+                        }<br/>
+                        function Player(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        Player.prototype = new Sports();<br/>
+                        var player1 = Player("kobe", 37);<br/>
+                        var player2 = Player("james", 31);<br/>
+                        player1.item  // "NBA"
+                    </td>
+                </tr>
+                <tr>
+                    <td>实例对象</td>
+                    <td>player1、player2，直接给实例对象定义的属性是不会为所有实力对象所共存的</td>
+                </tr>
+            </table>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>面向对象编程</b><span class="fn-right">P201-P250</span></th>
+                </tr>
+                <tr>
+                    <td width="20%"><b>对 象</b></td>
+                    <td><b>描 述</b></td>
+                </tr>
+                <tr>
+                    <td>一、封装</td>
+                    <td>假定我们把Player看成一个对象，它有"name"和"age"两个属性</td>
+                </tr>
+                </tr>
+                <tr>
+                    <td>1、生成对象的原始模式</td>
+                    <td>
+                        var Player = {<br/>
+                        &nbsp;&nbsp;name: "",<br/>
+                        &nbsp;&nbsp;age: ""<br/>
+                        }<br/>
+                        Player.name = "kobe";<br/>
+                        Player.age = 37;<br/><br/>
+                        缺点:1、如果生成多个实例，写起来麻烦；2、实例与原型之间，没有什么联系
+                    </td>
+                </tr>
+                <tr>
+                    <td>2、原始模式的改进</td>
+                    <td>
+                        var Player = function(name, age){<br/>
+                        &nbsp;&nbsp;return{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;name: name,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;age: age<br/>
+                        &nbsp;&nbsp;}<br/>
+                        }<br/>
+                        var player1 = Player("kobe", 37);<br/>
+                        var player2 = Player("james", 31);<br/><br/>
+                        优点：解决代码重复问题；缺点：不能反映出player1与player2是同一个原型对象的实例
+                    </td>
+                </tr>
+                <tr>
+                    <td>3、构造函数模式</td>
+                    <td>
+                        var Player = function(name, age){<br/>
+                       &nbsp;&nbsp; <b>this.name = name;</b><br/>
+                       &nbsp;&nbsp; <b>this.age = age;</b><br/>
+                        }<br/>
+                        var player1 = <b>new</b> Player("kobe", 37);<br/>
+                        var player2 = <b>new</b> Player("james", 31);<br/><br/>
+                        这时player1和player2会自动含有一个constructor属性，指向它们的构造函数<br/>
+                        player1.constructor == Player;  // true <br/>
+                        player2.constructor == Player;  // true <br/>
+                        player1.constructor == player2.constructor;  // true <br/><br/>
+                        javascript还提供看一个instructor运算符，验证原型对象与实例对象之间的关系<br/>
+                        player1 instanceof Player;  // true <br/><br/>
+                        优点：player1和player2自动含有一个constructor属性，指向它们的构造函数；缺点：浪费内存，具体请看下面例子
+                    </td>
+                </tr>
+                <tr>
+                    <td>4、构造函数模式的问题</td>
+                    <td>
+                        var Player = function(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        &nbsp;&nbsp;<b>this.type = "play basketball";</b><br/>
+                        &nbsp;&nbsp;<b>this.say = function(){alert("Everything is possible!");};</b><br/>
+                        }<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        var player2 = new Player("james", 31);<br/><br/>
+                        缺点：type属性和say()方法都是公用的内容，但每一次生成一个实例，都必须重复内容，这样不环保，缺乏效率
+                    </td>
+                </tr>
+                <tr>
+                    <td>5、prototype模式</td>
+                    <td>
+                        var Player = function(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        <b>Player.prototype.type = "play basketball";</b><br/>
+                        <b>Player.prototype.say = function(){alert("Everything is possible!");};</b><br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        var player2 = new Player("james", 31);<br/><br/>
+                        优点：把那些不变的属性和方法直接定义在prototype对象上，type属性和say()方法用实现了公用
+                    </td>
+                </tr>
+                <tr>
+                    <td>6、prototype模式的<br/>验证方法</td>
+                    <td>
+                        1、isPrototypeOf()这个方法用来判断某个prototype对象和某个实例之间的关系<br/>
+                        Player.prototype.isPrototypeOf(player1);  // true <br/>
+                        Player.prototype.isPrototypeOf(player2);  // true <br/><br/>
+                        2、每个实例都有一个hasOwnProperty()方法，这个方法用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性<br/>
+                        player1.hasOwnProperty("name");  // true <br/>
+                        player1.hasOwnProperty("type");  // false <br/><br/>
+                        3、in运算符可以用来判断某个实例是否含有某个属性，不管是本地还是继承<br/>
+                        "name" in player1; // true <br/>
+                        "type" in player1; // true <br/>
+                        此外，in运算符还可以用来遍历某个对象的所有属性<br/>
+                        for(var prop in player1){alert("cat1[" + prop + "]=" + cat1[prop]);}
+                    </td>
+                </tr>
+                <tr>
+                    <td>二、构造函数的继承</td>
+                    <td>假定我们把Player看成一个对象，它有"name"和"age"两个属性</td>
+                </tr>
+                <tr>
+                    <td>1、构造函数绑定</td>
+                    <td>使用call或apply方法，将父对象的构造函数绑定在对象上</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        var Sports = function(){<br/>
+                        &nbsp;&nbsp;this.item = "NBA";<br/>
+                        }<br/>
+                        var Player = function(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        &nbsp;&nbsp;<b>Sports.apply(this,arguments);</b><br/>
+                        }<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        player1.item  // "NBA"<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2、prototype模式</td>
+                    <td>如果"Player"的prototype对象，指向一个Sports的实例，那么所有"Player"的实例，就能继承Sports了</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        var Sports = function(){<br/>
+                        &nbsp;&nbsp;this.item = "NBA";<br/>
+                        }<br/>
+                        var Player = function(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        <b>Player.prototype = new Sports();</b>  // 相当于Player删除了prototype对象原先的值，然后再赋予一个新值<br/>
+                        <b>Player.prototype.constructor = Player;</b>  // 上一句已经将player1指向Sports，这句是把它还原为之前的Player<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        player1.item  // "NBA"
+                    </td>
+                </tr>
+                <tr>
+                    <td>3、直接继承prototype</td>
+                    <td>由于Sports对象中，不变的属性都可以直接写入Sports.prototype</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        function Sports(){}<br/>
+                        <b>Sports.prototype.item = "NBA";</b>  // 先将Sports对象改写<br/>
+                        function Player(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        <b>Player.prototype = Sports.prototype;</b>  // 将Player的prototype对象，指向Sports的prototype对象，完成继承<br/>
+                        Player.prototype.constructor = Player;  // 这一句实际上把Sports.prototype对象的constructor属性也改掉了！<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        player1.item // NBA
+                    </td>
+                </tr>
+                <tr>
+                    <td>4、利用空对象作为中介</td>
+                    <td>由于"直接继承prototype"存在上述的缺点，所以利用一个空对象作为中介</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        function Sports(){}<br/>
+                        Sports.prototype.item = "NBA";<br/>
+                        function Player(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        <b>function F(){}</b> // F是空对象，所以几乎不占内存<br/>
+                        <b>F.prototype = Sports.prototype;</b> // 将F的prototype对象，指向Sports的prototype对象，完成继承<br/>
+                        <b>Player.prototype = new F();</b> // 在将Player的prototype对象，指向F的prototype对象，完成继承<br/>
+                        Player.prototype.constructor = Player;<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        player1.item  // NBA<br/>
+                        Sports.prototype.constructor;  // Sports<br/>
+                        F.prototype.constructor;  // Sports<br/>
+                        Player.prototype.constructor;  // Player
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>我们将上面的方法，封装成一个函数，便于使用</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        function Sports(){}<br/>
+                        Sports.prototype.item = "NBA";<br/>
+                        function Player(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        <b>function extend(Child, Parent){</b>  // 开始封装<br/>
+                        var F = function(){};<br/>
+                        F.prototype = Parent.prototype;<br/>
+                        Child.prototype = new F();<br/>
+                        Child.prototype.constructor = Child;<br/>
+                        Child.uber = Parent.prototype;<br/>
+                        }<br/>
+                        <b>extend(Player, Sports);</b>  // 使用方法<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        player1.item;  //NBA
+                    </td>
+                </tr>
+                <tr>
+                    <td>5、拷贝继承</td>
+                    <td>把父对象的所有属性和方法，拷贝进子对象，实现继承</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        function Sports(){}<br/>
+                        Sports.prototype.item = "NBA";<br/>
+                        function Player(name, age){<br/>
+                        &nbsp;&nbsp;this.name = name;<br/>
+                        &nbsp;&nbsp;this.age = age;<br/>
+                        }<br/>
+                        function extend2(Child, Parent){<br/>
+                        &nbsp;&nbsp;var p = Parent.prototype;<br/>
+                        &nbsp;&nbsp;var c = Child.prototype;<br/>
+                        &nbsp;&nbsp;<b>for(var i in p){</b>  // 把Parent的prototype经过遍历拷贝到Child<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;c[i] = p[i];<br/>
+                        &nbsp;&nbsp;}<br/>
+                        }<br/>
+                        extend2(Player, Sports);<br/>
+                        var player1 = new Player("kobe", 37);<br/>
+                        player1.item  // NBA
+                    </td>
+                </tr>
+                <tr>
+                    <td>三、非构造函数的继承</td>
+                    <td>怎么让Player继承Sports</td>
+                </tr>
+                <tr>
+                    <td>1、"非构造函数"的继承</td>
+                    <td>
+                        Sports = {<br/>
+                        &nbsp;&nbsp;item: "NBA"<br/>
+                        }<br/>
+                        Player = {<br/>
+                        &nbsp;&nbsp;name: "kobe"<br/>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>2、object()方法</td>
+                    <td>
+                        <b>function object(o){</b>  // 把子对象的prototype属性，指向父对象，从而使得子对象与父对象连在一起<br/>
+                        &nbsp;&nbsp;function F(){}<br/>
+                        &nbsp;&nbsp;F.prototype = o;<br/>
+                        &nbsp;&nbsp;return new F();<br/>
+                        }<br/>
+                        Sports = {<br/>
+                        &nbsp;&nbsp;item: "NBA"<br/>
+                        }<br/>
+                        var Player = object(Sports);<br/>
+                        Player.name = "kobe";<br/>
+                        Player.age = 37;<br/>
+                        Player.item // NBA
+                    </td>
+                </tr>
+                <tr>
+                    <td>3、浅拷贝</td>
+                    <td>
+                        <b>function extendCopy(p){</b>  // 把父对象的属性，全部拷贝给子对象，也能实现继承 <br/>
+                        &nbsp;&nbsp;var c = {};<br/>
+                        &nbsp;&nbsp;for(var i in p){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;c[i] = p[i];<br/>
+                        &nbsp;&nbsp;}<br/>
+                        &nbsp;&nbsp;c.uber = p;<br/>
+                        &nbsp;&nbsp;return c;<br/>
+                        }<br/>
+                        var Sports = {<br/>
+                        item: "NBA"<br/>
+                        }<br/>
+                        var Player = extendCopy(Sports);<br/>
+                        Player.name = "kobe";<br/>
+                        Player.age = "37";<br/>
+                        Player.item // NBA<br/>
+                        <b>// 但是，在给Sports添加数组，然后改变数组的时候，Player也会做改变</b><br/>
+                        Sports.honor = ["单场81分", "得分王", "总冠军"];<br/>
+                        var Player = extendCopy(Sports);<br/>
+                        Sports.honor.push("全明星");<br/>
+                        Sports.honor; // ["单场81分", "得分王", "总冠军", "全明星"]<br/>
+                        Player.honor; // ["单场81分", "得分王", "总冠军", "全明星"]<br/>
+                        Player.honor.push("打铁王");<br/>
+                        Sports.honor; // ["单场81分", "得分王", "总冠军", "全明星, "打铁王"]<br/>
+                        Player.honor; // ["单场81分", "得分王", "总冠军", "全明星, "打铁王"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>3、深拷贝</td>
+                    <td>
+                        <b>function deepCopy(p, c){</b>  // 能够实现真正意义上的数组和对象的拷贝<br/>
+                        &nbsp;&nbsp;var c = c || {};<br/>
+                        &nbsp;&nbsp;for(var i in p){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;if(typeof p[i] === "object"){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[i] = (p[i].constructor === Array) ? [] : {};<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deepCopy(p[i],c[i]);<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;else{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[i] = p[i];<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                        &nbsp;&nbsp;}<br/>
+                        &nbsp;&nbsp;return c;<br/>
+                        }<br/>
+                        var Sports = {<br/>
+                        &nbsp;&nbsp;item: "NBA"<br/>
+                        }<br/>
+                        Sports.honor = ["单场81分", "得分王", "总冠军"];<br/>
+                        var Player = deepCopy(Sports);<br/>
+                        Sports.honor.push("全明星");<br/>
+                        Sports.honor;  // ["单场81分", "得分王", "总冠军", "全明星"]<br/>
+                        Player.honor.push("打铁王");<br/>
+                        Player.honor;  // ["单场81分", "得分王", "总冠军", "打铁王"]<br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="001" class="anchor"></i>
+            <h4>1.变量</h4>
+            <img style="max-width: 100%;" src="../imgs/01javascript变量.gif">
+        </div>
+        <div class="contBox">
+            <i id="002" class="anchor"></i>
+            <h4>2.运算符</h4>
+            <img style="max-width: 100%;" src="../imgs/02javascript运算符.gif">
+        </div>
+        <div class="contBox">
+            <i id="003" class="anchor"></i>
+            <h4>3.数组</h4>
+            <img style="max-width: 100%;" src="../imgs/03javascript数组.gif">
+        </div>
+        <div class="contBox">
+            <i id="004" class="anchor"></i>
+            <h4>4.流程语句</h4>
+            <img style="max-width: 100%;" src="../imgs/04javascript流程语句.gif">
+        </div>
+        <div class="contBox">
+            <i id="005" class="anchor"></i>
+            <h4>5.字符串函数</h4>
+            <img style="max-width: 100%;" src="../imgs/05javascript字符串函数.gif">
+        </div>
+        <div class="contBox">
+            <i id="006" class="anchor"></i>
+            <h4>6.函数基础</h4>
+            <img style="max-width: 100%;" src="../imgs/06javascript函数基础.gif">
+        </div>
+        <div class="contBox">
+            <i id="007" class="anchor"></i>
+            <h4>7.基础dom操作</h4>
+            <img style="max-width: 100%;" src="../imgs/07javascript基础dom操作.gif">
+        </div>
+        <div class="contBox">
+            <i id="008" class="anchor"></i>
+            <h4>8.正则表达式</h4>
+            <img style="max-width: 100%;" src="../imgs/08javascript正则表达式.gif">
+        </div>
+    </div>
+</div>
+<div class="foot"></div>
+</body>
+</html>

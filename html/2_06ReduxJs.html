@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/scrollTopControl.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="subMenu">
+    <div class="wrap">
+        <div class="subTitle">ReduxJS专区：</div>
+        <ul>
+            <li><a href="#01" class="click">ReduxJS简介</a></li>
+            <li><a href="#02">ReduxJS用法</a></li>
+            <li><a href="#03">ReduxJS实例</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container fn-clear">
+    <div class="wrap">
+        <div class="contBox">
+            <i id="01" class="anchor"></i>
+            <h4>ReduxJS简介</h4>
+            <p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。</p>
+            <p>Redux 可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。</p>
+            <p>
+                React有props和state: props意味着父级分发下来的属性，state意味着组件内部可以自行管理的状态，并且整个React没有数据向上回溯的能力，也就是说数据只能单向向下分发，或者自行内部消化
+            </p>
+            <p><img src="../imgs/redux_01.png"></p>
+            <p>a. action是纯声明式的数据结构，只提供事件的所有要素，不提供逻辑。</p>
+            <p>b. reducer是一个匹配函数，action的发送是全局的：所有的reducer都可以捕捉到并匹配与自己相关与否，相关就拿走action中的要素进行逻辑处理，修改store中的状态，不相关就不对state做处理原样返回。</p>
+            <p>c. store负责存储状态并可以被react api回调，发布action.</p>
+        </div>
+        <div class="contBox">
+            <i id="02" class="anchor"></i>
+            <h4>Redux原理</h4>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>redux实例描述</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>运行模式</td>
+                    <td>initialState → action/reducer/store → state</td>
+                </tr>
+                <tr>
+                    <td>redux 原理</td>
+                    <td>
+                        <p>store.dispatch({type: "", xxx: "xxx"});</p>
+                        <p>function reducer(state, action){switch(action.type){case: return}</p>
+                        <p>var store = Redux.createStore(reducer)</p>
+                        <p>store.subscribe(store.getState())</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="contBox">
+            <i id="03" class="anchor"></i>
+            <h4>ReduxJS实例</h4>
+            <p><img src="../imgs/redux_02.png"></p>
+            <table class="tableNo1">
+                <tr>
+                    <th colspan="2"><b>redux实例描述</b></th>
+                </tr>
+                <tr>
+                    <td width="25%"><b>代码</b></td>
+                    <td><b>描述</b></td>
+                </tr>
+                <tr>
+                    <td>引入redux库</td>
+                    <td>&lt;script src="build/redux.min.js"&gt;&lt;/script&gt;</td>
+                </tr>
+                <tr>
+                    <td>state 初始化状态</td>
+                    <td>var initialState = { color: 'red' };</td>
+                </tr>
+                <tr>
+                    <td>reducer 处理事件</td>
+                    <td>
+                        <p>function color(state, action) {</p>
+                        <p>&nbsp;&nbsp;if(typeof state === 'undefined') {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;return initialState</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>&nbsp;&nbsp;switch(action.type) {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;case 'RED' :</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { color: 'red'};</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;case 'GREEN' :</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { color: 'green'};</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;case 'TOGGLE' :</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return state.color === 'red' ? {color:'green'} : {color:'red'};</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;default :</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return state;</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>store 监听事件</td>
+                    <td>
+                        <p>var store = Redux.createStore(color); </p>
+                        <p>store.subscribe(</p>
+                        <p>&nbsp;&nbsp;function renderValue() {</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('colorEl').style.color = store.getState().color;</p>
+                        <p>&nbsp;&nbsp;}</p>
+                        <p>);</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>action 触发事件</td>
+                    <td>
+                        <p>document.getElementById('red').addEventListener('click', function(){ store.dispatch({type: 'RED'}); });</p>
+                        <p>document.getElementById('green').addEventListener('click', function(){ store.dispatch({type: 'GREEN'}); });</p>
+                        <p>document.getElementById('toggle').addEventListener ('click', function(){ store.dispatch({type: 'TOGGLE'}); });</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="foot"></div>
+</body>
+</html>

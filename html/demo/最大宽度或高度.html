@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最大宽度或高度</title>
+    <style type="text/css">
+        .box{
+            max-width:200px;
+            max-height:100px;
+            _width:expression(document.body.clientWidth > 200 ? "200px" : "auto");
+            _height:expression(this.scrollHeight > 100 ? "100px" : "auto");
+
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+
+            vertical-align: top;
+            background: #999;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <p>可切换浏览器查看效果：</p>
+    <div class="box" style="width: 200px; height: 100px;">200*100</div>
+    <div class="box">最大宽度或高度最大宽度或高度</div>
+    <div class="box">最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度最大宽度或高度</div>
+    <script>
+        window.open("http://www.baidu.com", "百度一下，你就知道", "width = 400, height = 400, top: 100, left: 100, resizable = yes");
+    </script>
+</body>
+</html>
